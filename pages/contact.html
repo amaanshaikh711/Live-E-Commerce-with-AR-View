@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,17 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="../js/main.js"></script>
+
+
 </head>
+
 <body class="bg-neutral-50">
     <!-- Notification Toast -->
     <div id="notification" class="notification-toast">
@@ -30,7 +38,7 @@
                     <img src="../img/logo_LH.jpg" alt="Lusso Homes Logo" class="logo-img">
                     <span class="logo-text">Lusso Homes</span>
                 </a>
-                
+
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="../index.html" class="nav-link">Home</a>
@@ -85,7 +93,8 @@
                     <h3 class="contact-info-title">Call Us</h3>
                     <p class="contact-info-text">Mon-Sat: 10 AM - 7 PM</p>
                     <a href="tel:+918433600339" class="contact-info-link">+91 84336 00339</a>&nbsp; &nbsp;
-                    <a href="tel:+918433600339" class="contact-info-link">+91 84336 00339</a>
+                    <a href="tel:+918433600339" class="contact-info-link">+91 9372560427 </a>
+                    </a>
                 </div>
                 <div class="contact-info-card">
                     <div class="contact-info-icon">
@@ -115,8 +124,9 @@
                 <div class="lg:col-span-3">
                     <div class="contact-form-container">
                         <h2 class="contact-form-title">Send Us a Message</h2>
-                        <p class="contact-form-subtitle">Have a question or want to start a project? Fill out the form below and we'll get back to you soon.</p>
-                        
+                        <p class="contact-form-subtitle">Have a question or want to start a project? Fill out the form
+                            below and we'll get back to you soon.</p>
+
                         <form id="contact-form" class="contact-form" onsubmit="handleContactForm(event)">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="form-group">
@@ -128,15 +138,17 @@
                                     <input type="text" name="lastName" class="form-input" placeholder="Doe" required>
                                 </div>
                             </div>
-                            
+
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="form-group">
                                     <label class="form-label">Email Address *</label>
-                                    <input type="email" name="email" class="form-input" placeholder="john@example.com" required>
+                                    <input type="email" name="email" class="form-input" placeholder="john@example.com"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Phone Number *</label>
-                                    <input type="tel" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+                                    <input type="tel" name="phone" class="form-input" placeholder="+91 98765 43210"
+                                        required>
                                 </div>
                             </div>
 
@@ -155,7 +167,8 @@
 
                             <div class="form-group">
                                 <label class="form-label">Message *</label>
-                                <textarea name="message" class="form-input" rows="6" placeholder="Tell us about your project or inquiry..." required></textarea>
+                                <textarea name="message" class="form-input" rows="6"
+                                    placeholder="Tell us about your project or inquiry..." required></textarea>
                             </div>
 
                             <div class="form-group">
@@ -203,12 +216,15 @@
                             <i class="fas fa-share-alt"></i>
                             Follow Us
                         </h3>
-                        <p class="info-sidebar-text">Stay connected for latest updates, design inspiration, and exclusive offers.</p>
+                        <p class="info-sidebar-text">Stay connected for latest updates, design inspiration, and
+                            exclusive offers.</p>
                         <div class="contact-social-icons">
-                            <a href="https://www.facebook.com/share/19yLx9SDQk/" class="contact-social-link facebook" target="_blank">
+                            <a href="https://www.facebook.com/share/19yLx9SDQk/" class="contact-social-link facebook"
+                                target="_blank">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" class="contact-social-link instagram" target="_blank">
+                            <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw"
+                                class="contact-social-link instagram" target="_blank">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>
@@ -220,9 +236,10 @@
                             <i class="fab fa-whatsapp"></i>
                             Quick Contact
                         </h3>
-                        <p class="info-sidebar-text">Need immediate assistance? Chat with us on WhatsApp for instant support.</p>
+                        <p class="info-sidebar-text">Need immediate assistance? Chat with us on WhatsApp for instant
+                            support.</p>
                         <a href="https://wa.me/918433600339
-                            <i class="fab fa-whatsapp"></i>
+                            <i class=" fab fa-whatsapp"></i>
                             <span>Chat on WhatsApp</span>
                         </a>
                     </div>
@@ -233,7 +250,8 @@
                             <i class="fas fa-question-circle"></i>
                             Have Questions?
                         </h3>
-                        <p class="info-sidebar-text">Check out our frequently asked questions for quick answers to common inquiries.</p>
+                        <p class="info-sidebar-text">Check out our frequently asked questions for quick answers to
+                            common inquiries.</p>
                         <a href="#" class="info-sidebar-link">View FAQ <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -245,9 +263,14 @@
     <section class="map-section" id="map">
         <div class="container mx-auto px-4">
             <h2 class="section-title mb-12">Find Us</h2>
-            <center><div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d7700.0667452082525!2d72.81964998927758!3d19.072489238791267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDA0JzE4LjUiTiA3MsKwNDknMTkuMyJF!5e0!3m2!1sen!2sin!4v1762458621531!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div></center>
+            <center>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d7700.0667452082525!2d72.81964998927758!3d19.072489238791267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDA0JzE4LjUiTiA3MsKwNDknMTkuMyJF!5e0!3m2!1sen!2sin!4v1762458621531!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </center>
         </div>
     </section>
 
@@ -262,7 +285,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Project timelines vary depending on the scope and complexity. Typically, custom furniture takes 4-6 weeks, while complete interior design projects can take 8-12 weeks from concept to completion. We'll provide a detailed timeline during the initial consultation.</p>
+                        <p>Project timelines vary depending on the scope and complexity. Typically, custom furniture
+                            takes 4-6 weeks, while complete interior design projects can take 8-12 weeks from concept to
+                            completion. We'll provide a detailed timeline during the initial consultation.</p>
                     </div>
                 </div>
 
@@ -272,7 +297,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes! We offer comprehensive interior design consultations. Our expert designers will visit your space, understand your vision, and create customized design plans tailored to your needs and budget.</p>
+                        <p>Yes! We offer comprehensive interior design consultations. Our expert designers will visit
+                            your space, understand your vision, and create customized design plans tailored to your
+                            needs and budget.</p>
                     </div>
                 </div>
 
@@ -282,7 +309,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Absolutely! We specialize in custom furniture design. You can modify existing designs or work with our team to create completely bespoke pieces that perfectly match your space and style preferences.</p>
+                        <p>Absolutely! We specialize in custom furniture design. You can modify existing designs or work
+                            with our team to create completely bespoke pieces that perfectly match your space and style
+                            preferences.</p>
                     </div>
                 </div>
 
@@ -292,19 +321,12 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>We primarily serve Mumbai and surrounding areas in Maharashtra. For larger projects or custom orders, we can arrange delivery across India. Contact us to discuss your specific location.</p>
+                        <p>We primarily serve Mumbai and surrounding areas in Maharashtra. For larger projects or custom
+                            orders, we can arrange delivery across India. Contact us to discuss your specific location.
+                        </p>
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>What is your warranty policy?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>All our furniture comes with a 5-year warranty covering manufacturing defects and structural issues. We also offer maintenance services to keep your furniture looking beautiful for years to come.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -315,7 +337,8 @@
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h3 class="footer-title">Lusso Homes</h3>
-                    <p class="footer-text">Bringing luxury and comfort to your home since 2020. Premium furniture crafted with care.</p>
+                    <p class="footer-text">Bringing luxury and comfort to your home since 2020. Premium furniture
+                        crafted with care.</p>
                 </div>
                 <div>
                     <h4 class="footer-heading">Quick Links</h4>
@@ -329,17 +352,19 @@
                 <div>
                     <h4 class="footer-heading">Customer Service</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">Warranty</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="terms.html#shipping-policy">Shipping Policy</a></li>
+                        <li><a href="terms.html#terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="terms.html#privacy-policy">Privacy Policy</a></li>
+                        <li><a href="contact.html">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="footer-heading">Connect With Us</h4>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/19yLx9SDQk/" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/19yLx9SDQk/" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -355,122 +380,124 @@
     </button>
 
     <!-- WhatsApp floating button -->
-    <a class="whatsapp-fab" href="https://wa.me/918433600339" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <a class="whatsapp-fab" href="https://wa.me/918433600339" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <script>
-    // 🔥 Initialize EmailJS with YOUR public key
-    (function(){
-        emailjs.init("WzDH15x6IJCJ3xN_m"); // ⚠️ 
-    })();
+        // 🔥 Initialize EmailJS with YOUR public key
+        (function () {
+            emailjs.init("WzDH15x6IJCJ3xN_m"); // ⚠️ 
+        })();
 
-    // Handle Contact Form Submission
-    function handleContactForm(event) {
-        event.preventDefault();
-        
-        const form = event.target;
-        const submitButton = form.querySelector('.btn-submit');
-        const buttonText = submitButton.querySelector('span');
-        const buttonIcon = submitButton.querySelector('i');
-        
-        // Show loading state
-        buttonText.textContent = 'Sending...';
-        buttonIcon.className = 'fas fa-spinner fa-spin';
-        submitButton.disabled = true;
-        
-        // Get form data
-        const formData = {
-            firstName: form.firstName.value,
-            lastName: form.lastName.value,
-            email: form.email.value,
-            phone: form.phone.value,
-            subject: form.subject.options[form.subject.selectedIndex].text,
-            message: form.message.value,
-            newsletter: form.newsletter.checked ? 'Yes' : 'No'
-        };
-        
-        // 🔥 Send email using EmailJS
-        emailjs.send(
-            'service_ba2iu4d',     
-            'template_brsi1eh',    // 
-            formData
-        )
-        .then(function(response) {
-            // Success! 🎉
-            console.log('SUCCESS!', response.status, response.text);
-            
-            // Show success notification
-            const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notification-text');
-            notificationText.textContent = 'Thank you! Your message has been sent successfully.';
-            notification.classList.add('show');
-            
-            // Reset form
-            form.reset();
-            
-            // Reset button
-            buttonText.textContent = 'Send Message';
-            buttonIcon.className = 'fas fa-paper-plane';
-            submitButton.disabled = false;
-            
-            // Hide notification after 3 seconds
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        })
-        .catch(function(error) {
-            // Error! ❌
-            console.log('FAILED...', error);
-            
-            // Show error notification
-            const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notification-text');
-            notification.querySelector('i').className = 'fas fa-exclamation-circle';
-            notificationText.textContent = 'Oops! Something went wrong. Please try again.';
-            notification.classList.add('show');
-            
-            // Reset button
-            buttonText.textContent = 'Send Message';
-            buttonIcon.className = 'fas fa-paper-plane';
-            submitButton.disabled = false;
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-                notification.querySelector('i').className = 'fas fa-check-circle';
-            }, 3000);
-        });
-    }
+        // Handle Contact Form Submission
+        function handleContactForm(event) {
+            event.preventDefault();
 
-    // Toggle FAQ
-    function toggleFAQ(button) {
-        const faqItem = button.parentElement;
-        const isActive = faqItem.classList.contains('active');
-        
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.classList.remove('active');
-        });
-        
-        if (!isActive) {
-            faqItem.classList.add('active');
+            const form = event.target;
+            const submitButton = form.querySelector('.btn-submit');
+            const buttonText = submitButton.querySelector('span');
+            const buttonIcon = submitButton.querySelector('i');
+
+            // Show loading state
+            buttonText.textContent = 'Sending...';
+            buttonIcon.className = 'fas fa-spinner fa-spin';
+            submitButton.disabled = true;
+
+            // Get form data
+            const formData = {
+                firstName: form.firstName.value,
+                lastName: form.lastName.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                subject: form.subject.options[form.subject.selectedIndex].text,
+                message: form.message.value,
+                newsletter: form.newsletter.checked ? 'Yes' : 'No'
+            };
+
+            // 🔥 Send email using EmailJS
+            emailjs.send(
+                'service_ba2iu4d',
+                'template_brsi1eh',    // 
+                formData
+            )
+                .then(function (response) {
+                    // Success! 🎉
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Show success notification
+                    const notification = document.getElementById('notification');
+                    const notificationText = document.getElementById('notification-text');
+                    notificationText.textContent = 'Thank you! Your message has been sent successfully.';
+                    notification.classList.add('show');
+
+                    // Reset form
+                    form.reset();
+
+                    // Reset button
+                    buttonText.textContent = 'Send Message';
+                    buttonIcon.className = 'fas fa-paper-plane';
+                    submitButton.disabled = false;
+
+                    // Hide notification after 3 seconds
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 3000);
+                })
+                .catch(function (error) {
+                    // Error! ❌
+                    console.log('FAILED...', error);
+
+                    // Show error notification
+                    const notification = document.getElementById('notification');
+                    const notificationText = document.getElementById('notification-text');
+                    notification.querySelector('i').className = 'fas fa-exclamation-circle';
+                    notificationText.textContent = 'Oops! Something went wrong. Please try again.';
+                    notification.classList.add('show');
+
+                    // Reset button
+                    buttonText.textContent = 'Send Message';
+                    buttonIcon.className = 'fas fa-paper-plane';
+                    submitButton.disabled = false;
+
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                        notification.querySelector('i').className = 'fas fa-check-circle';
+                    }, 3000);
+                });
         }
-    }
 
-    // Set subject from URL parameter
-    window.addEventListener('DOMContentLoaded', () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const service = urlParams.get('service');
-        if (service) {
-            const subjectSelect = document.querySelector('select[name="subject"]');
-            if (subjectSelect) {
-                if (service === 'modular-kitchen') {
-                    subjectSelect.value = 'modular-kitchen';
-                } else if (service === 'interior-designing') {
-                    subjectSelect.value = 'interior-design';
-                }
+        // Toggle FAQ
+        function toggleFAQ(button) {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            if (!isActive) {
+                faqItem.classList.add('active');
             }
         }
-    });
-</script>
+
+        // Set subject from URL parameter
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const service = urlParams.get('service');
+            if (service) {
+                const subjectSelect = document.querySelector('select[name="subject"]');
+                if (subjectSelect) {
+                    if (service === 'modular-kitchen') {
+                        subjectSelect.value = 'modular-kitchen';
+                    } else if (service === 'interior-designing') {
+                        subjectSelect.value = 'interior-design';
+                    }
+                }
+            }
+        });
+    </script>
 </body>
+
 </html>

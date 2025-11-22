@@ -720,16 +720,6 @@ const products = [
         dimensions: "3'6 x 3'"
     },
     {
-        id: 101,
-        name: "Walnut Solid Wood",
-        category: "shoe-racks",
-        price: 10,
-        image: "img/Shoe Racks/Shoe Rack- Walnut Solid Wood - 3'6 x 3' - 38999.jpeg",
-        description: "A solid and durable walnut shoe rack. Material: Walnut, oak, teak, mahogany, burma.",
-        material: "Walnut Wood",
-        dimensions: "3'6 x 3'"
-    },
-    {
         id: 71,
         name: "White Wood Shoe Rack",
         category: "shoe-racks",

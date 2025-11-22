@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,12 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="bg-neutral-50">
     <!-- Notification Toast -->
     <div id="notification" class="notification-toast">
@@ -29,7 +33,7 @@
                     <img src="img/logo_LH.jpg" alt="Lusso Homes Logo" class="logo-img">
                     <span class="logo-text">Lusso Homes</span>
                 </a>
-                
+
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="nav-link active">Home</a>
@@ -74,20 +78,33 @@
         </div>
     </section>
 
-    <!-- Ad Banner Carousel 1 -->
     <section class="banner-slider-section">
-        <div id="slider">
-            <figure>
-                <img src="./img/1900x800 bed banner/og_banner_1.jpg" alt="Luxury Bed Collection">
-                <img src="./img/1900x800 bed banner/og_banner_2.jpg" alt="Designer Console Tables">
-                <img src="./img/1900x800 bed banner/banner_1.jpg" alt="Premium Sofas">
+        <div class="banner-slider-container" id="banner-slider">
+            <div class="banner-slider-wrapper">
+                <div class="banner-slider-slide active">
+                    <img src="./img/1900x800 bed banner/og_banner_1.jpg" alt="Luxury Bed Collection">
+                </div>
+                <div class="banner-slider-slide">
+                    <img src="./img/1900x800 bed banner/og_banner_2.jpg" alt="Designer Console Tables">
+                </div>
+                <div class="banner-slider-slide">
+                    <img src="./img/1900x800 bed banner/banner_1.jpg" alt="Premium Sofas">
+                </div>
+            </div>
+
+            <div class="banner-slider-dots">
+                <button class="banner-slider-dot active" data-index="0"></button>
+                <button class="banner-slider-dot" data-index="1"></button>
+                <button class="banner-slider-dot" data-index="2"></button>
+            </div>
         </div>
     </section>
 
+
     <!-- Featured Categories -->
-    <section class="section-padding">
-        <div class="container mx-auto px-4" styles="margin-top:-85px;">
-            <h2 class="section-title" >Shop by Category</h2>
+    <section class="section-padding" style="margin-top:-45px;">
+        <div class="container mx-auto px-4" styles="margin-top:-85px; ">
+            <h2 class="section-title">Shop by Category</h2>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
                 <div class="category-card" onclick="filterCategory('sofas')">
                     <div class="category-icon">
@@ -179,7 +196,7 @@
     </section>
 
     <!-- Sofas Section -->
-    <section class="section-padding bg-white">
+    <section class="section-padding bg-white" style="margin-top:-35px;">
         <div class="container mx-auto px-4">
             <h2 class="section-title">Luxurious Sofas</h2>
             <div class="product-grid" id="sofas-grid">
@@ -206,14 +223,14 @@
                 </div>
             </div>
         </div>
-        <div class="banner-nav">
+        <!-- <div class="banner-nav">
             <button class="banner-dot active" data-carousel="banner-carousel-2" data-index="0"></button>
             <button class="banner-dot" data-carousel="banner-carousel-2" data-index="1"></button>
-        </div>
+        </div> -->
     </section>
 
     <!-- Beds Section -->
-    <section class="section-padding">
+    <section class="section-padding" style="margin-top:-35px;">
         <div class="container mx-auto px-4">
             <h2 class="section-title">Premium Beds</h2>
             <div class="product-grid" id="beds-grid">
@@ -246,69 +263,116 @@
     </section>
 
     <!-- Tables Section -->
-    <section class="section-padding bg-white">
+    <section class="section-padding bg-white" style="margin-top:-35px;">
         <div class="container mx-auto px-4">
             <h2 class="section-title">Designer Tables</h2>
             <div class="product-grid" id="center-tables">
-                
+
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="section-padding">
+    <section class="section-padding" style="margin-top:-35px;">
         <div class="container mx-auto px-4">
             <h2 class="section-title">What Our Customers Say</h2>
             <div class="testimonial-slider" id="testimonial-slider">
                 <div class="testimonial-slide-group active">
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"Absolutely stunning furniture! The quality is exceptional and the delivery was prompt. Highly recommend Lusso Homes for anyone looking to elevate their living space."</p>
-                        <div class="testimonial-author"><p class="font-semibold">Priya Sharma</p><p class="text-sm text-neutral-500">Mumbai</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Absolutely stunning furniture! The quality is exceptional and the
+                            delivery was prompt. Highly recommend Lusso Homes for anyone looking to elevate their living
+                            space."</p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Priya Sharma</p>
+                            <p class="text-sm text-neutral-500">Mumbai</p>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"The craftsmanship is incredible. We bought a complete bedroom set and it has transformed our home. The customer service team was also very helpful throughout."</p>
-                        <div class="testimonial-author"><p class="font-semibold">Rajesh Kumar</p><p class="text-sm text-neutral-500">Delhi</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"The craftsmanship is incredible. We bought a complete bedroom set
+                            and it has transformed our home. The customer service team was also very helpful
+                            throughout."</p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Rajesh Kumar</p>
+                            <p class="text-sm text-neutral-500">Delhi</p>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"Premium quality at reasonable prices. The sofa we purchased is not only beautiful but also incredibly comfortable. Worth every rupee!"</p>
-                        <div class="testimonial-author"><p class="font-semibold">Ananya Reddy</p><p class="text-sm text-neutral-500">Bangalore</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Premium quality at reasonable prices. The sofa we purchased is not
+                            only beautiful but also incredibly comfortable. Worth every rupee!"</p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Ananya Reddy</p>
+                            <p class="text-sm text-neutral-500">Bangalore</p>
+                        </div>
                     </div>
                 </div>
                 <div class="testimonial-slide-group">
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"Lusso Homes exceeded my expectations! The dining table is a masterpiece and the delivery was seamless."</p>
-                        <div class="testimonial-author"><p class="font-semibold">Simran Kaur</p><p class="text-sm text-neutral-500">Chandigarh</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Lusso Homes exceeded my expectations! The dining table is a
+                            masterpiece and the delivery was seamless."</p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Simran Kaur</p>
+                            <p class="text-sm text-neutral-500">Chandigarh</p>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"Amazing experience! The team helped me customize my sofa and it fits perfectly in my living room."</p>
-                        <div class="testimonial-author"><p class="font-semibold">Amit Patel</p><p class="text-sm text-neutral-500">Ahmedabad</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Amazing experience! The team helped me customize my sofa and it
+                            fits perfectly in my living room."</p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Amit Patel</p>
+                            <p class="text-sm text-neutral-500">Ahmedabad</p>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"The bed is so comfortable and stylish. I get compliments from everyone who visits!"</p>
-                        <div class="testimonial-author"><p class="font-semibold">Megha Joshi</p><p class="text-sm text-neutral-500">Pune</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"The bed is so comfortable and stylish. I get compliments from
+                            everyone who visits!"</p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Megha Joshi</p>
+                            <p class="text-sm text-neutral-500">Pune</p>
+                        </div>
                     </div>
                 </div>
                 <div class="testimonial-slide-group">
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"Great value for money. The chair I ordered is both elegant and sturdy."</p>
-                        <div class="testimonial-author"><p class="font-semibold">Suresh Menon</p><p class="text-sm text-neutral-500">Kochi</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Great value for money. The chair I ordered is both elegant and
+                            sturdy."</p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Suresh Menon</p>
+                            <p class="text-sm text-neutral-500">Kochi</p>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"I love the attention to detail. The console table is a showstopper in my hallway."</p>
-                        <div class="testimonial-author"><p class="font-semibold">Fatima Sheikh</p><p class="text-sm text-neutral-500">Hyderabad</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"I love the attention to detail. The console table is a showstopper
+                            in my hallway."</p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Fatima Sheikh</p>
+                            <p class="text-sm text-neutral-500">Hyderabad</p>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="testimonial-text">"Superb customer support and after-sales service. Will buy again!"</p>
-                        <div class="testimonial-author"><p class="font-semibold">Neha Verma</p><p class="text-sm text-neutral-500">Jaipur</p></div>
+                        <div class="stars mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">"Superb customer support and after-sales service. Will buy again!"
+                        </p>
+                        <div class="testimonial-author">
+                            <p class="font-semibold">Neha Verma</p>
+                            <p class="text-sm text-neutral-500">Jaipur</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -336,7 +400,8 @@
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h3 class="footer-title">Lusso Homes</h3>
-                    <p class="footer-text">Bringing luxury and comfort to your home since 2020. Premium furniture crafted with care.</p>
+                    <p class="footer-text">Bringing luxury and comfort to your home since 2020. Premium furniture
+                        crafted with care.</p>
                 </div>
                 <div>
                     <h4 class="footer-heading">Quick Links</h4>
@@ -350,17 +415,19 @@
                 <div>
                     <h4 class="footer-heading">Customer Service</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">Warranty</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="pages/terms.html#shipping-policy">Shipping Policy</a></li>
+                        <li><a href="pages/terms.html#terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="pages/terms.html#privacy-policy">Privacy Policy</a></li>
+                        <li><a href="pages/contact.html">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="footer-heading">Connect With Us</h4>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/19yLx9SDQk/" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/19yLx9SDQk/" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -387,8 +454,10 @@
         });
     </script>
     <!-- WhatsApp floating button: connected number +91 84336 00339 -->
-    <a class="whatsapp-fab" href="https://wa.me/918433600339" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <a class="whatsapp-fab" href="https://wa.me/918433600339" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 </body>
+
 </html>
