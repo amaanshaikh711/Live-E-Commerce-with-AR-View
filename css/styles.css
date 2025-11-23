@@ -389,7 +389,8 @@ html {
 
 .btn-primary:hover {
     background: transparent;
-    border-color: white;
+    color: var(--gold);
+    border-color: var(--gold);
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(201, 166, 107, 0.3);
 }

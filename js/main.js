@@ -197,6 +197,12 @@ function addToCart(productId) {
     localStorage.setItem('lusso-cart', JSON.stringify(cart));
     updateBadgeCounts();
     showNotification('Item added to cart!');
+
+    // Redirect to checkout
+    const path = window.location.pathname || '';
+    const needsParent = path.includes('/pages/') || path.includes('\\pages\\');
+    const url = needsParent ? 'checkout.html' : 'pages/checkout.html';
+    window.location.href = url;
 }
 
 // Remove from cart
@@ -537,7 +543,7 @@ function loadWishlist() {
 
 // Proceed to checkout
 function proceedToCheckout() {
-    alert('Checkout functionality would be implemented here. This is a demo website.');
+    window.location.href = 'checkout.html';
 }
 
 // Handle newsletter subscription

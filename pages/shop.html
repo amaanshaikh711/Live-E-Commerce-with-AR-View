@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,12 @@
     <link rel="apple-touch-icon" href="../img/logo_LH.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="bg-neutral-50">
     <!-- Notification Toast -->
     <div id="notification" class="notification-toast">
@@ -25,10 +29,10 @@
             <div class="flex items-center justify-between">
                 <a href="index.html" class="logo">
                     <img src="../img/logo_LH.jpg" alt="Lusso Homes Logo" class="logo-img">
-                    <span class="logo-text">Lusso Homes</span>
+                    <!-- <span class="logo-text">Lusso Homes</span> -->
                 </a>
-                
-                
+
+
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="../index.html" class="nav-link">Home</a>
                     <a href="shop.html" class="nav-link active">Shop</a>
@@ -89,9 +93,12 @@
                     <button class="filter-btn" onclick="applyFilter('console-tables')">Console Tables</button>
                     <button class="filter-btn" onclick="applyFilter('wardrobes')">Wardrobes</button>
                     <button class="filter-btn" onclick="applyFilter('shoe-racks')">Shoe Racks</button>
-                    <button class="filter-btn" onclick="window.location.href='contact.html?service=modular-kitchen'">Modular Kitchen</button>
-                    <button class="filter-btn" onclick="window.location.href='contact.html?service=interior-designing'">Interior Designing</button>
-                    
+                    <button class="filter-btn"
+                        onclick="window.location.href='contact.html?service=modular-kitchen'">Modular Kitchen</button>
+                    <button class="filter-btn"
+                        onclick="window.location.href='contact.html?service=interior-designing'">Interior
+                        Designing</button>
+
                     <div class="ml-auto flex items-center gap-3">
                         <label class="font-semibold">Sort by:</label>
                         <select class="sort-select" id="sort-select" onchange="applySorting()">
@@ -117,7 +124,8 @@
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h3 class="footer-title">Lusso Homes</h3>
-                    <p class="footer-text">Bringing luxury and comfort to your home since 2020. Premium furniture crafted with care.</p>
+                    <p class="footer-text">Bringing luxury and comfort to your home since 2020. Premium furniture
+                        crafted with care.</p>
                 </div>
                 <div>
                     <h4 class="footer-heading">Quick Links</h4>
@@ -140,8 +148,10 @@
                 <div>
                     <h4 class="footer-heading">Connect With Us</h4>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/19yLx9SDQk/" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/19yLx9SDQk/" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -199,7 +209,7 @@
             if (!container) return;
 
             let productList = currentFilter === 'all' ? products : getProductsByCategory(currentFilter);
-            
+
             if (currentSort !== 'default') {
                 productList = sortProducts(productList, currentSort);
             }
@@ -209,8 +219,10 @@
         }
     </script>
     <!-- WhatsApp floating button: connected number +91 84336 00339 -->
-    <a class="whatsapp-fab" href="https://wa.me/918433600339" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <a class="whatsapp-fab" href="https://wa.me/918433600339" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 </body>
+
 </html>

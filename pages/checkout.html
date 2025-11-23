@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Lusso Homes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .section-card {
@@ -15,6 +18,7 @@
             border: 1px solid #E5DDD0;
             padding: 24px;
         }
+
         .input-field {
             width: 100%;
             padding: 12px 16px;
@@ -23,17 +27,20 @@
             font-size: 14px;
             transition: all 0.3s;
         }
+
         .input-field:focus {
             outline: none;
             border-color: #8B6F47;
             box-shadow: 0 0 0 3px rgba(139, 111, 71, 0.1);
         }
+
         .progress-step {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 16px;
         }
+
         .progress-circle {
             width: 36px;
             height: 36px;
@@ -45,20 +52,25 @@
             color: white;
             background-color: #D4AF9A;
         }
+
         .progress-circle.active {
             background-color: #8B6F47;
         }
+
         .progress-circle.completed {
             background-color: #10B981;
         }
+
         .step-label {
             font-size: 14px;
             color: #666;
         }
+
         .step-label.active {
             color: #8B6F47;
             font-weight: 600;
         }
+
         .payment-option {
             border: 2px solid #E5DDD0;
             border-radius: 8px;
@@ -69,14 +81,17 @@
             align-items: center;
             gap: 12px;
         }
+
         .payment-option:hover {
             border-color: #8B6F47;
             background-color: #FAF8F3;
         }
+
         .payment-option.selected {
             border-color: #8B6F47;
             background-color: #FAF8F3;
         }
+
         .payment-radio {
             width: 20px;
             height: 20px;
@@ -84,10 +99,12 @@
             border-radius: 50%;
             cursor: pointer;
         }
+
         .payment-radio.checked {
             background-color: #8B6F47;
             border-color: #8B6F47;
         }
+
         .btn-primary {
             background-color: #8B6F47;
             color: white;
@@ -99,25 +116,30 @@
             transition: all 0.3s;
             width: 100%;
         }
+
         .btn-primary:hover {
             background-color: #6F5938;
             transform: translateY(-2px);
             box-shadow: 0 8px 16px rgba(139, 111, 71, 0.2);
         }
+
         .btn-primary:disabled {
             background-color: #D4AF9A;
             cursor: not-allowed;
             transform: none;
         }
+
         .order-item {
             display: flex;
             gap: 12px;
             padding: 12px 0;
             border-bottom: 1px solid #E5DDD0;
         }
+
         .order-item:last-child {
             border-bottom: none;
         }
+
         .item-image {
             width: 60px;
             height: 60px;
@@ -125,12 +147,14 @@
             border-radius: 8px;
             object-fit: cover;
         }
+
         .summary-row {
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
             font-size: 14px;
         }
+
         .summary-row.total {
             padding-top: 16px;
             margin-top: 16px;
@@ -139,6 +163,7 @@
             font-weight: 600;
             color: #8B6F47;
         }
+
         .notification-toast {
             position: fixed;
             top: 20px;
@@ -153,15 +178,18 @@
             align-items: center;
             z-index: 1000;
         }
+
         .notification-toast.show {
             display: flex;
             animation: slideIn 0.3s ease;
         }
+
         @keyframes slideIn {
             from {
                 transform: translateX(400px);
                 opacity: 0;
             }
+
             to {
                 transform: translateX(0);
                 opacity: 1;
@@ -169,6 +197,7 @@
         }
     </style>
 </head>
+
 <body class="bg-neutral-50">
     <!-- Notification Toast -->
     <div id="notification" class="notification-toast">
@@ -182,9 +211,9 @@
             <div class="flex items-center justify-between">
                 <a href="../index.html" class="logo">
                     <!-- <img src="img/logo_LH.jpg" alt="Lusso Homes Logo" class="logo-img"> -->
-                    <span class="logo-text">Lusso Homes</span>
+                    <!-- <span class="logo-text">Lusso Homes</span> -->
                 </a>
-                
+
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="../index.html" class="nav-link">Home</a>
@@ -233,7 +262,7 @@
             <div class="grid lg:grid-cols-3 gap-8">
                 <!-- Left Column - Form -->
                 <div class="lg:col-span-2 space-y-6">
-                    
+
                     <!-- Progress Indicator -->
                     <div class="section-card">
                         <h3 class="font-bold mb-6 flex items-center gap-2">
@@ -258,7 +287,7 @@
                         <h2 class="text-2xl font-bold mb-6">
                             <i class="fas fa-map-pin"></i> Shipping Address
                         </h2>
-                        
+
                         <form id="checkoutForm" class="space-y-4">
                             <!-- Full Name -->
                             <div>
@@ -270,18 +299,21 @@
                             <div class="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Email*</label>
-                                    <input type="email" id="email" class="input-field" placeholder="john@example.com" required>
+                                    <input type="email" id="email" class="input-field" placeholder="john@example.com"
+                                        required>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Phone*</label>
-                                    <input type="tel" id="phone" class="input-field" placeholder="+91 98765 43210" required>
+                                    <input type="tel" id="phone" class="input-field" placeholder="+91 98765 43210"
+                                        required>
                                 </div>
                             </div>
 
                             <!-- Address -->
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Street Address*</label>
-                                <input type="text" id="address" class="input-field" placeholder="123 Main Street" required>
+                                <input type="text" id="address" class="input-field" placeholder="123 Main Street"
+                                    required>
                             </div>
 
                             <!-- City, State, ZIP -->
@@ -292,7 +324,8 @@
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">State*</label>
-                                    <input type="text" id="state" class="input-field" placeholder="Maharashtra" required>
+                                    <input type="text" id="state" class="input-field" placeholder="Maharashtra"
+                                        required>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">PIN Code*</label>
@@ -307,7 +340,7 @@
                         <h2 class="text-2xl font-bold mb-6">
                             <i class="fas fa-credit-card"></i> Payment Method
                         </h2>
-                        
+
                         <div class="space-y-3">
                             <!-- Razorpay Option -->
                             <div class="payment-option selected" onclick="selectPaymentMethod('razorpay', this)">
@@ -414,8 +447,10 @@
                 <div>
                     <h4 class="footer-heading text-sm">Connect</h4>
                     <div class="social-icons text-sm">
-                        <a href="https://www.facebook.com/share/19yLx9SDQk/" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/19yLx9SDQk/" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/lussohomes.in?igsh=cDNtaXI4MXhjOTNw" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -446,7 +481,7 @@
         function loadCheckoutItems() {
             const cartData = JSON.parse(localStorage.getItem('lusso-cart')) || [];
             const container = document.getElementById('checkoutItems');
-            
+
             let subtotal = 0;
             container.innerHTML = '';
 
@@ -458,7 +493,7 @@
             cartData.forEach(item => {
                 const itemTotal = item.price * item.quantity;
                 subtotal += itemTotal;
-                
+
                 container.innerHTML += `
                     <div class="order-item">
                         <img src="${getImageUrl(item.image)}" alt="${item.name}" class="item-image" onerror="this.src='https://via.placeholder.com/60'">
@@ -483,12 +518,12 @@
         // Select payment method
         function selectPaymentMethod(method, element) {
             selectedPaymentMethod = method;
-            
+
             document.querySelectorAll('.payment-option').forEach(option => {
                 option.classList.remove('selected');
                 option.querySelector('.payment-radio').classList.remove('checked');
             });
-            
+
             element.classList.add('selected');
             element.querySelector('.payment-radio').classList.add('checked');
         }
@@ -557,7 +592,7 @@
         // Handle payment success
         function handlePaymentSuccess(response, orderDetails) {
             console.log('Payment successful:', response);
-            
+
             // Save order details
             const order = {
                 orderId: 'ORD' + Date.now(),
@@ -568,7 +603,7 @@
             };
 
             localStorage.setItem('lastOrder', JSON.stringify(order));
-            
+
             // Clear cart
             localStorage.removeItem('lusso-cart');
 
@@ -585,11 +620,11 @@
         function showNotification(message) {
             const notification = document.getElementById('notification');
             const notificationText = document.getElementById('notification-text');
-            
+
             if (notification && notificationText) {
                 notificationText.textContent = message;
                 notification.classList.add('show');
-                
+
                 setTimeout(() => {
                     notification.classList.remove('show');
                 }, 3000);
@@ -597,4 +632,5 @@
         }
     </script>
 </body>
+
 </html>
