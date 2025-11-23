@@ -558,7 +558,8 @@ html {
 
 @media (max-width: 768px) {
     .banner-slider-wrapper {
-        height: 300px;
+        height: auto;
+        aspect-ratio: 19/8;
     }
 
     .banner-slider-btn {
@@ -592,7 +593,8 @@ html {
 
 @media (max-width: 480px) {
     .banner-slider-wrapper {
-        height: 200px;
+        height: auto;
+        aspect-ratio: 19/8;
     }
 
     .banner-slider-btn {
