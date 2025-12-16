@@ -1364,6 +1364,11 @@ html {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .product-image-container {
+        height: auto;
+        aspect-ratio: 1/1;
+    }
+
     .video-section {
         height: 280px;
     }

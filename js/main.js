@@ -198,11 +198,7 @@ function addToCart(productId) {
     updateBadgeCounts();
     showNotification('Item added to cart!');
 
-    // Redirect to checkout
-    const path = window.location.pathname || '';
-    const needsParent = path.includes('/pages/') || path.includes('\\pages\\');
-    const url = needsParent ? 'checkout.html' : 'pages/checkout.html';
-    window.location.href = url;
+
 }
 
 // Remove from cart

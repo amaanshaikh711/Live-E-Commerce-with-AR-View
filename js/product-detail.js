@@ -14,14 +14,14 @@ function findProductById(id) {
 // Load and display product details
 function loadProductDetail() {
     const productId = getProductIdFromURL();
-    
+
     if (!productId) {
         window.location.href = 'shop.html';
         return;
     }
 
     const product = findProductById(productId);
-    
+
     if (!product) {
         alert('Product not found!');
         window.location.href = 'shop.html';
@@ -61,6 +61,20 @@ function loadProductDetail() {
     }
     addToWishlistBtn.onclick = () => toggleWishlistDetail(product.id);
 
+    // Handle AR View - Redirect to dedicated AR page
+    const arBtn = document.getElementById('ar-view-btn');
+
+    if (product.model && arBtn) {
+        arBtn.classList.remove('hidden');
+
+        arBtn.onclick = () => {
+            // Redirect to dedicated AR view page
+            window.location.href = `ar-view.html?id=${product.id}`;
+        };
+    } else {
+        if (arBtn) arBtn.classList.add('hidden');
+    }
+
     // Load related products
     loadRelatedProducts(product.category, product.id);
 }
@@ -86,9 +100,9 @@ function decreaseQuantity() {
 function addToCartDetail(productId) {
     const product = findProductById(productId);
     const quantity = parseInt(document.getElementById('quantity-input').value);
-    
+
     const existingItem = cart.find(item => item.id === productId);
-    
+
     if (existingItem) {
         existingItem.quantity += quantity;
     } else {
@@ -97,7 +111,7 @@ function addToCartDetail(productId) {
             quantity: quantity
         });
     }
-    
+
     localStorage.setItem('lusso-cart', JSON.stringify(cart));
     updateBadgeCounts();
     showNotification('Added to cart successfully!');
@@ -106,10 +120,10 @@ function addToCartDetail(productId) {
 // Toggle wishlist from detail page
 function toggleWishlistDetail(productId) {
     const product = findProductById(productId);
-    
+
     const index = wishlist.findIndex(item => item.id === productId);
     const addToWishlistBtn = document.getElementById('add-to-wishlist-btn');
-    
+
     if (index > -1) {
         wishlist.splice(index, 1);
         addToWishlistBtn.classList.remove('active');
@@ -121,7 +135,7 @@ function toggleWishlistDetail(productId) {
         addToWishlistBtn.innerHTML = '<i class="fas fa-heart mr-2"></i> Remove from Wishlist';
         showNotification('Added to wishlist!');
     }
-    
+
     localStorage.setItem('lusso-wishlist', JSON.stringify(wishlist));
     updateBadgeCounts();
 }
@@ -131,17 +145,17 @@ function loadRelatedProducts(category, currentProductId) {
     const relatedProducts = products
         .filter(p => p.category === category && p.id !== currentProductId)
         .slice(0, 4);
-    
+
     const container = document.getElementById('related-products');
-    
+
     if (relatedProducts.length === 0) {
         container.innerHTML = '<p class="text-center text-neutral-600 col-span-full">No related products found.</p>';
         return;
     }
-    
+
     container.innerHTML = relatedProducts.map(product => {
         const isWishlisted = isInWishlist(product.id);
-        
+
         return `
             <div class="product-card">
                 <div class="product-image-container">
