@@ -1,8 +1,7 @@
 # 🏰 Lusso Homes - Augmented Reality Furniture Experience
 
-![Project Banner](banner.png)
-
 > **Experience luxury in your own space.** A premium e-commerce platform featuring immersive Augmented Reality (AR) that lets customers place furniture in their homes before buying.
+> ![Project Banner](banner.png)
 
 [![Live Demo](https://img.shields.io/badge/demo-live-green?style=for-the-badge&logo=vercel)](https://lussohomes.in)
 [![AR Supported](https://img.shields.io/badge/AR-Core%20%26%20Kit-blue?style=for-the-badge&logo=google)](https://developers.google.com/ar)
