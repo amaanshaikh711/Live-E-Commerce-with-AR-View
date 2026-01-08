@@ -194,7 +194,7 @@ const products = [
         description: "Classic design with black leather and walnut frame. Fabric: velvet, cotton, linen, microfiber, leather. Wood: plywood, oak, teak, mahogany.",
         material: "Genuine Leather, Walnut Wood",
         dimensions: "Width: 29.5\", Depth: 31\", Height: 33\"",
-        model: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb",
+        model: "models/chair-01.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -266,8 +266,7 @@ const products = [
         description: "Ergonomic leather chair with lumbar support. Fabric: velvet, cotton, linen, microfiber, leather. Wood: plywood, oak, teak, mahogany.",
         material: "Premium Leather, Metal Base",
         dimensions: "Width: 27\" (70 cm), Depth: 29\" (75 cm), Height: 36\" (91 cm)",
-        model: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb",
-        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+        model: "models/chair-02.glb",
     },
     {
         id: 24,

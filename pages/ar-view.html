@@ -4,518 +4,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR View - Lusso Homes</title>
-    <link rel="icon" type="image/x-icon" href="../img/final_logo.jpg">
-    <link rel="apple-touch-icon" href="../img/final_logo.jpg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <title>AR Experience</title>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Model Viewer for 3D and AR -->
+    <!-- Model Viewer -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
     <style>
-        body {
+        :root {
+            --primary: #000000;
+            --accent: #2563eb;
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background: #1a1a1a;
+            box-sizing: border-box;
         }
 
-        #ar-container {
-            width: 100vw;
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f5f5f5;
             height: 100vh;
-            position: relative;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* 
-           Crucial for AR: Ensure background is transparent when AR is active if possible,
-           though model-viewer handles this natively in immersive sessions.
-        */
-        model-viewer {
-            width: 100%;
-            height: 100%;
-            --progress-bar-color: #667eea;
-            background-color: transparent;
-            /* Help ensure no background color blocks camera */
-        }
-
-        .ar-controls {
+        /* Header */
+        .header {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-            z-index: 10;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            pointer-events: none;
+            /* Let clicks pass through to viewer */
         }
 
         .back-btn {
-            background: white;
-            color: #1a1a1a;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
+            background: var(--glass);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .back-btn:hover {
-            background: #f0f0f0;
-            transform: scale(1.05);
-        }
-
-        .product-info-badge {
-            background: rgba(255, 255, 255, 0.95);
-            color: #1a1a1a;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .bottom-controls {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 30px 20px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .ar-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
+            justify-content: center;
+            color: var(--primary);
             font-size: 18px;
-            font-weight: 700;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            pointer-events: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
         }
 
-        .ar-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+        .back-btn:active {
+            transform: scale(0.9);
         }
 
-        .ar-button:active {
-            transform: translateY(-1px);
-        }
-
-        .ar-button i {
-            font-size: 24px;
-        }
-
-        .instructions {
-            background: rgba(255, 255, 255, 0.95);
-            color: #1a1a1a;
-            padding: 15px 25px;
-            border-radius: 20px;
-            font-size: 14px;
-            text-align: center;
-            max-width: 90%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            line-height: 1.6;
-        }
-
-        .instructions strong {
-            display: block;
-            margin-bottom: 5px;
+        .logo-mark {
+            font-weight: 700;
             font-size: 16px;
-            color: #667eea;
+            color: var(--primary);
+            background: var(--glass);
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .loading-screen {
+        /* Viewer Container */
+        .viewer-container {
+            flex: 1;
             position: fixed;
+            /* Fixed to prevent scrolling behavior on mobile */
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: #1a1a1a;
+            z-index: 1;
+            background: radial-gradient(circle at center, #ffffff 0%, #e5e5e5 100%);
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            --poster-color: transparent;
+        }
+
+        /* Controls Area */
+        .controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0 20px 40px 20px;
+            /* background: linear-gradient(to top, rgba(0, 0, 0, 0.05), transparent); */
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 20px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .product-card {
+            background: var(--glass);
+            padding: 15px 20px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+            margin-bottom: 80px;
+            /* Space for the button */
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .product-hint {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* AR Button */
+        .ar-btn {
+            position: absolute;
+            bottom: 30px;
+            bottom: calc(30px + env(safe-area-inset-bottom));
+            /* iOS Safe Area */
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 18px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            pointer-events: auto;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 90%;
+            max-width: 300px;
             justify-content: center;
             z-index: 1000;
-            color: white;
+            white-space: nowrap;
         }
 
-        .loading-screen.hidden {
-            display: none;
+        .ar-btn:active {
+            transform: translateX(-50%) scale(0.98);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(255, 255, 255, 0.2);
-            border-top-color: #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .ar-btn i {
+            font-size: 20px;
         }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .loading-text {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .error-message {
+        /* Status Messages */
+        .status-toast {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: white;
-            color: #1a1a1a;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            max-width: 80%;
-            z-index: 1001;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .error-message h2 {
-            color: #e74c3c;
-            margin-bottom: 15px;
-        }
-
-        .error-message button {
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: #667eea;
+            background: rgba(0, 0, 0, 0.8);
             color: white;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .ar-prompt {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px 30px;
-            border-radius: 15px;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            animation: pulse 2s infinite;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            text-align: center;
+            opacity: 0;
             pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 1000;
         }
 
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 0.9;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        .ar-prompt.show {
-            display: flex;
-        }
-
-        .hand-icon {
-            font-size: 48px;
-            color: #667eea;
-            animation: bounce 1s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        .status-toast.show {
+            opacity: 1;
         }
     </style>
 </head>
 
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-        <div class="spinner"></div>
-        <div class="loading-text">Loading 3D Model...</div>
+
+    <div class="header">
+        <button class="back-btn" onclick="history.back()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="logo-mark">LUSSO AR</div>
     </div>
 
-    <!-- Error Message -->
-    <div class="error-message" id="error-message">
-        <h2><i class="fas fa-exclamation-triangle"></i> Oops!</h2>
-        <p id="error-text">Something went wrong. Please try again.</p>
-        <button onclick="goBack()">Go Back</button>
-    </div>
 
-    <!-- AR Container -->
-    <div id="ar-container">
-        <!-- Top Controls -->
-        <div class="ar-controls">
-            <button class="back-btn" onclick="goBack()">
-                <i class="fas fa-arrow-left"></i> Back
+    <div class="viewer-container">
+        <model-viewer id="ar-viewer" camera-controls shadow-intensity="1" loading="eager" ar
+            ar-modes="webxr scene-viewer quick-look" ar-scale="auto" ar-placement="floor" interaction-prompt="none"
+            src="" ios-src="" alt="3D Model" poster="" reveal="auto">
+
+            <!-- Native AR Button (Handled by model-viewer) -->
+            <button slot="ar-button" class="ar-btn" id="ar-element-btn">
+                <i class="fas fa-camera"></i>
+                <span>View in Your Room</span>
             </button>
-            <div class="product-info-badge" id="product-name-badge">
-                Loading...
-            </div>
-        </div>
 
-        <!-- Model Viewer -->
-        <model-viewer id="product-model-viewer" src="" ios-src="" alt="3D model" ar
-            ar-modes="scene-viewer webxr quick-look" ar-scale="auto" camera-controls auto-rotate shadow-intensity="1"
-            max-camera-orbit="auto 90deg auto" camera-orbit="0deg 75deg 105%" loading="eager" reveal="auto"
-            environment-image="neutral" exposure="1" style="background-color: transparent !important;">
-
-            <!-- Hide default AR button as we use a custom one -->
-            <button slot="ar-button" style="display: none;"></button>
-
-            <!-- AR Prompt -->
-            <div class="ar-prompt show" id="ar-prompt">
-                <i class="fas fa-hand-pointer hand-icon"></i>
-                <p style="margin: 0; font-weight: 600; color: #1a1a1a;">Drag to rotate</p>
-            </div>
-
-            <!-- Loading indicator slot -->
-            <div slot="progress-bar">
-                <!-- We use our own loading screen, so we can hide this or style it if needed -->
+            <!-- Loading Indicator -->
+            <div slot="progress-bar"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgba(0,0,0,0.5);">
+                <i class="fas fa-spinner fa-spin" style="font-size: 32px;"></i>
             </div>
         </model-viewer>
 
-        <!-- Bottom Controls -->
-        <div class="bottom-controls">
-            <button class="ar-button" id="ar-activation-button">
-                <i class="fas fa-camera"></i>
-                <span>View in Your Space</span>
-            </button>
-            <div class="instructions">
-                <strong>How to use AR:</strong>
-                Tap the button above to place this furniture in your room using your camera. Move your phone/camera to
-                find a surface!
+        <!-- Controls container for text only -->
+        <div class="controls" style="pointer-events: none;">
+            <div class="product-card" style="pointer-events: auto;">
+                <div class="product-name" id="p-name">Loading...</div>
+                <div class="product-hint">Rotate with one finger • Zoom with two</div>
             </div>
+            <!-- Button is now inside model-viewer -->
         </div>
     </div>
 
-    <!-- Scripts -->
+    <div class="status-toast" id="toast"></div>
+
     <script src="../js/products.js"></script>
     <script>
-        // Inline AR view logic for better debugging
-        function getProductIdFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return parseInt(urlParams.get('id'));
+        // Logic
+        const params = new URLSearchParams(window.location.search);
+        const pid = parseInt(params.get('id'));
+        const product = products.find(p => p.id === pid);
+        const viewer = document.getElementById('ar-viewer');
+
+        function showToast(msg, duration = 3000) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), duration);
         }
 
-        function goBack() {
-            const productId = getProductIdFromURL();
-            if (productId) {
-                window.location.href = `product-detail.html?id=${productId}`;
+        if (product) {
+            document.getElementById('p-name').textContent = product.name;
+
+            // Set poster image if available
+            if (product.image) {
+                // Fix image path if needed
+                let imgPath = product.image;
+                if (!imgPath.startsWith('http') && !imgPath.startsWith('../')) {
+                    // specific hack for Lusso structure: img/ is at root, we are in pages/
+                    imgPath = '../' + imgPath;
+                }
+                viewer.poster = imgPath;
+            }
+
+            // Fix URL paths
+            let mUrl = product.model;
+            // Handle models/ path which is at root
+            if (mUrl && mUrl.startsWith('models/')) mUrl = '../' + mUrl;
+
+            if (mUrl) {
+                // Full Absolute URL for reliability
+                const absUrl = new URL(mUrl, document.baseURI).href;
+                viewer.src = absUrl;
+                viewer.alt = `3D model of ${product.name}`;
             } else {
-                window.location.href = 'shop.html';
+                showToast("No 3D model available for this product");
             }
+
+            if (product.iosModel) {
+                let iUrl = product.iosModel;
+                if (iUrl.startsWith('models/')) iUrl = '../' + iUrl;
+                viewer.setAttribute('ios-src', new URL(iUrl, document.baseURI).href);
+            }
+        } else {
+            showToast("Product not found");
         }
 
-        function showError(message) {
-            const errorDiv = document.getElementById('error-message');
-            const errorText = document.getElementById('error-text');
-            errorText.textContent = message;
-            errorDiv.classList.add('show');
-            document.getElementById('loading-screen').classList.add('hidden');
-        }
-
-        function hideLoading() {
-            const loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.classList.add('hidden');
-        }
-
-        function initializeARView() {
-            const productId = getProductIdFromURL();
-
-            if (!productId) {
-                showError('No product selected. Please select a product to view in AR.');
-                return;
-            }
-
-            const product = products.find(p => p.id === productId);
-
-            if (!product) {
-                showError('Product not found. Please try again.');
-                return;
-            }
-
-            // Update product name badge
-            const productBadge = document.getElementById('product-name-badge');
-            productBadge.textContent = product.name;
-
-            // Get model viewer element
-            const modelViewer = document.getElementById('product-model-viewer');
-
-            // Get model URL - Prioritize product model, then fallback
-            let modelUrl = product.model;
-
-            // Default to astronaut if no model available (but we want your custom model!)
-            if (!modelUrl) {
-                console.warn("No model found for product, defaulting...");
-                modelUrl = 'https://modelviewer.dev/shared-assets/models/Astronaut.glb';
-            } else {
-                // If path starts with "models/", prepend "../" because we are in "pages/" directory
-                if (modelUrl.startsWith('models/')) {
-                    modelUrl = '../' + modelUrl;
-                }
-                // Add cache busting
-                modelUrl += '?t=' + new Date().getTime();
-            }
-
-            // Convert to Absolute URL for reliable AR handling (SceneViewer needs absolute paths)
-            const absoluteUrl = new URL(modelUrl, window.location.href).href;
-
-            const iosModelUrl = product.iosModel;
-
-            console.log('Loading model from (Relative):', modelUrl);
-            console.log('Loading model from (Absolute):', absoluteUrl);
-
-            modelViewer.src = absoluteUrl;
-
-            // Handle iOS model
-            if (iosModelUrl && iosModelUrl.trim() !== '') {
-                let finalIosUrl = iosModelUrl;
-                // iOS AR (QuickLook) handles relative URLs fine usually, but absolute doesn't hurt
-                if (finalIosUrl.startsWith('models/')) {
-                    finalIosUrl = '../' + finalIosUrl;
-                }
-                const absoluteIosUrl = new URL(finalIosUrl, window.location.href).href;
-                modelViewer.setAttribute('ios-src', absoluteIosUrl);
-            } else {
-                modelViewer.removeAttribute('ios-src');
-            }
-
-            modelViewer.alt = `3D model of ${product.name}`;
-
-            // Handle model loading events
-            modelViewer.addEventListener('load', () => {
-                console.log('Model loaded successfully!');
-                hideLoading();
-                modelViewer.dismissPoster(); // Explicitly dismiss any poster
-
-                // Hide prompt after a few seconds
-                setTimeout(() => {
-                    const arPrompt = document.getElementById('ar-prompt');
-                    if (arPrompt) {
-                        arPrompt.classList.remove('show');
-                    }
-                }, 3000);
-            });
-
-            modelViewer.addEventListener('error', (event) => {
-                console.error('Model loading error:', event);
-
-                // Detailed error info to help debug
-                let errorMsg = 'Failed to load 3D model.';
-                if (event.detail && event.detail.message) {
-                    errorMsg += ' ' + event.detail.message;
-                }
-
-                // Show error immediately instead of falling back to astronaut
-                hideLoading();
-                showError(`Error: ${errorMsg}. Please check if the file exists and is accessible.`);
-            });
-
-            modelViewer.addEventListener('progress', (event) => {
-                const progress = event.detail.totalProgress;
-                const percent = Math.round(progress * 100);
-                console.log('Loading progress:', percent + '%');
-
-                // Update loading text
-                const loadingText = document.querySelector('.loading-text');
-                if (loadingText) {
-                    loadingText.textContent = `Loading 3D Model... ${percent}%`;
-                    if (percent < 100 && percent > 20) {
-                        loadingText.textContent += " (Large file, please wait)";
-                    }
-                }
-            });
-
-            // Handle AR button click
-            const arButton = document.getElementById('ar-activation-button');
-
-            arButton.addEventListener('click', () => {
-                if (modelViewer.canActivateAR) {
-                    try {
-                        modelViewer.activateAR();
-                    } catch (error) {
-                        console.error("AR Activation Error:", error);
-                        alert("Could not activate AR. Ensure camera permissions are allowed.");
-                    }
-                } else {
-                    alert('AR is not supported on this device/browser combination. Please try Chrome on Android or Safari on iOS.');
-                }
-            });
-
-            // Hide prompt on interaction
-            modelViewer.addEventListener('camera-change', () => {
-                const arPrompt = document.getElementById('ar-prompt');
-                if (arPrompt) {
-                    arPrompt.classList.remove('show');
-                }
-            });
-
-            // Force initial render (fix for some "black screen" on load issues)
-            setTimeout(() => {
-                modelViewer.dismissPoster();
-            }, 100);
-        }
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeARView();
+        // Handle errors
+        viewer.addEventListener('error', (e) => {
+            console.error('Model Viewer Error:', e);
+            showToast("Error loading 3D model. Check connection.");
         });
 
-        window.goBack = goBack;
+        // AR Activation is now handled natively by the <model-viewer> component via slot="ar-button"
+        // This ensures better compatibility with WebXR and fallback modes automatically.
+
+        function forceAndroidIntent() {
+            const url = viewer.src;
+            if (!url) {
+                showToast("Model URL not set");
+                return;
+            }
+
+            const title = product ? product.name : 'Object';
+
+            // Android Intent for ARCore Scene Viewer
+            // Using logic that forces the browser to open the intent
+            // resizable=false and mode=ar_only or ar_preferred
+
+            const intentParams = new URLSearchParams();
+            intentParams.append('file', url);
+            intentParams.append('mode', 'ar_preferred');
+            intentParams.append('title', title);
+            intentParams.append('link', window.location.href);
+            intentParams.append('resizable', 'false');
+
+            // Construct Intent URI
+            // S.browser_fallback_url ensures if it fails, it goes to Google Developers AR page
+            const intent = `intent://arvr.google.com/scene-viewer/1.0?${intentParams.toString()}#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;`;
+
+            console.log("Launching Intent:", intent);
+
+            // Create and click anchor
+            const anchor = document.createElement('a');
+            anchor.setAttribute('href', intent);
+            anchor.click();
+        }
+
+        function showSecurityModal() {
+            // Remove existing if any
+            const existing = document.getElementById('sec-modal');
+            if (existing) existing.remove();
+
+            const modal = document.createElement('div');
+            modal.id = 'sec-modal';
+            modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;color:white;text-align:center;backdrop-filter:blur(10px);animation:fadeIn 0.3s ease;';
+
+            const currentOrigin = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`;
+
+            modal.innerHTML = `
+                <div style="background:rgba(255,255,255,0.1);padding:20px;border-radius:50%;margin-bottom:20px;">
+                    <i class="fas fa-lock" style="font-size:40px;color:#f87171;"></i>
+                </div>
+                <h2 style="margin-bottom:10px;font-size:24px;">Camera Security Block</h2>
+                <p style="margin-bottom:25px;line-height:1.6;color:#d1d5db;font-size:16px;">
+                    Android blocks the AR Camera on local networks (192.168...).
+                    <br>You need to allow this connection.
+                </p>
+                <div style="background:#262626;padding:20px;border-radius:16px;text-align:left;width:100%;max-width:320px;margin-bottom:25px;border:1px solid #404040;">
+                    <div style="margin-bottom:10px;color:#9ca3af;font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:bold;">How to fix (1 min):</div>
+                    <div style="margin-bottom:8px;">1. Open <b>chrome://flags</b></div>
+                    <div style="margin-bottom:8px;">2. Search <b>insecure origins</b></div>
+                    <div style="margin-bottom:8px;">3. Set to <b>Enabled</b></div>
+                    <div style="margin-bottom:8px;">4. Add this text:</div>
+                    <div style="background:black;padding:10px;border-radius:8px;font-family:monospace;color:#4ade80;margin:5px 0;word-break:break-all;">${currentOrigin}</div>
+                    <div>5. Relaunch Chrome</div>
+                </div>
+                <div style="display:flex;gap:10px;width:100%;max-width:320px;">
+                    <button onclick="document.getElementById('sec-modal').remove()" style="flex:1;background:transparent;color:white;border:1px solid #404040;padding:14px;border-radius:12px;font-weight:600;">Close</button>
+                    <button onclick="forceAndroidIntent()" style="flex:1;background:#2563eb;color:white;border:none;padding:14px;border-radius:12px;font-weight:600;">Try Anyway</button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Add fade animation
+            const style = document.createElement('style');
+            style.innerHTML = `@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }`;
+            document.head.appendChild(style);
+        }
     </script>
 </body>
 
