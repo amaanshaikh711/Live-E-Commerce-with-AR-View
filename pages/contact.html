@@ -19,6 +19,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="js/products.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/scroll-animations.js"></script>
 
 
 </head>
@@ -65,10 +66,29 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu">
-                <a href="../index.html" class="mobile-nav-link">Home</a>
-                <a href="shop.html" class="mobile-nav-link">Shop</a>
-                <a href="about.html" class="mobile-nav-link">About</a>
-                <a href="contact.html" class="mobile-nav-link">Contact</a>
+                <div class="mobile-menu-header">
+                    <img src="../img/logo_LH.jpg" alt="Lusso Homes" class="mobile-menu-logo">
+                    <p class="mobile-menu-tagline">LUXURY FURNITURE STORE</p>
+                </div>
+
+                <nav class="mobile-menu-nav">
+                    <a href="../index.html" class="mobile-nav-link" data-page="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="shop.html" class="mobile-nav-link" data-page="shop">
+                        <i class="fas fa-store"></i>
+                        <span>Shop</span>
+                    </a>
+                    <a href="about.html" class="mobile-nav-link" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="contact.html" class="mobile-nav-link" data-page="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </nav>
             </div>
         </div>
     </nav>
@@ -85,8 +105,8 @@
     <!-- Contact Info Cards -->
     <section class="section-padding bg-white">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 -mt-20 relative z-10">
-                <div class="contact-info-card">
+            <div class="grid md:grid-cols-3 gap-8 -mt-20 relative z-10" data-animate-group>
+                <div class="contact-info-card" data-animate="left">
                     <div class="contact-info-icon">
                         <i class="fas fa-phone-alt"></i>
                     </div>
@@ -96,7 +116,7 @@
                     <a href="tel:+918433600339" class="contact-info-link">+91 9372560427 </a>
                     </a>
                 </div>
-                <div class="contact-info-card">
+                <div class="contact-info-card" data-animate="fade">
                     <div class="contact-info-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -104,7 +124,7 @@
                     <p class="contact-info-text">We'll respond within 24 hours</p>
                     <a href="mailto:business@lussohomes.in" class="contact-info-link">business@lussohomes.in</a>
                 </div>
-                <div class="contact-info-card">
+                <div class="contact-info-card" data-animate="right">
                     <div class="contact-info-icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>

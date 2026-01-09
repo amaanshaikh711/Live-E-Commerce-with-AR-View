@@ -51,10 +51,29 @@
             </div>
 
             <div id="mobile-menu" class="mobile-menu">
-                <a href="../index.html" class="mobile-nav-link">Home</a>
-                <a href="shop.html" class="mobile-nav-link">Shop</a>
-                <a href="about.html" class="mobile-nav-link">About</a>
-                <a href="contact.html" class="mobile-nav-link">Contact</a>
+                <div class="mobile-menu-header">
+                    <img src="../img/logo_LH.jpg" alt="Lusso Homes" class="mobile-menu-logo">
+                    <p class="mobile-menu-tagline">LUXURY FURNITURE STORE</p>
+                </div>
+
+                <nav class="mobile-menu-nav">
+                    <a href="../index.html" class="mobile-nav-link" data-page="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="shop.html" class="mobile-nav-link" data-page="shop">
+                        <i class="fas fa-store"></i>
+                        <span>Shop</span>
+                    </a>
+                    <a href="about.html" class="mobile-nav-link" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="contact.html" class="mobile-nav-link" data-page="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </nav>
             </div>
         </div>
     </nav>
@@ -142,6 +161,7 @@
 
     <script src="../js/products.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/scroll-animations.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             loadCart();

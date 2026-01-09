@@ -60,10 +60,29 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu">
-                <a href="index.html" class="mobile-nav-link">Home</a>
-                <a href="pages/shop.html" class="mobile-nav-link">Shop</a>
-                <a href="pages/about.html" class="mobile-nav-link">About</a>
-                <a href="pages/contact.html" class="mobile-nav-link">Contact</a>
+                <div class="mobile-menu-header">
+                    <img src="img/logo_LH.jpg" alt="Lusso Homes" class="mobile-menu-logo">
+                    <p class="mobile-menu-tagline">LUXURY FURNITURE STORE</p>
+                </div>
+
+                <nav class="mobile-menu-nav">
+                    <a href="index.html" class="mobile-nav-link" data-page="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="pages/shop.html" class="mobile-nav-link" data-page="shop">
+                        <i class="fas fa-store"></i>
+                        <span>Shop</span>
+                    </a>
+                    <a href="pages/about.html" class="mobile-nav-link" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="pages/contact.html" class="mobile-nav-link" data-page="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </nav>
             </div>
         </div>
     </nav>
@@ -104,23 +123,23 @@
     <!-- Featured Categories -->
     <section class="section-padding" style="margin-top:-40px;">
         <div class="container mx-auto px-4" styles="margin-top:-85px; ">
-            <h2 class="section-title">Shop by Category</h2>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
-                <div class="category-card" onclick="filterCategory('sofas')">
+            <h2 class="section-title" data-animate="fade">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6" data-animate-group>
+                <div class="category-card" data-animate="left" onclick="filterCategory('sofas')">
                     <div class="category-icon">
                         <i class="fas fa-couch text-4xl"></i>
                     </div>
                     <h3 class="category-title">Sofas</h3>
                 </div>
 
-                <div class="category-card" onclick="filterCategory('beds')">
+                <div class="category-card" data-animate="right" onclick="filterCategory('beds')">
                     <div class="category-icon">
                         <i class="fas fa-bed text-4xl"></i>
                     </div>
                     <h3 class="category-title">Beds</h3>
                 </div>
 
-                <div class="category-card" onclick="filterCategory('chairs')">
+                <div class="category-card" data-animate="left" onclick="filterCategory('chairs')">
                     <div class="category-icon">
                         <i class="fas fa-chair text-4xl"></i>
                     </div>
@@ -128,21 +147,21 @@
                 </div>
 
                 <!-- Tables broken into multiple table-type cards -->
-                <div class="category-card" onclick="filterCategory('study-tables')">
+                <div class="category-card" data-animate="right" onclick="filterCategory('study-tables')">
                     <div class="category-icon">
                         <i class="fas fa-laptop text-4xl"></i>
                     </div>
                     <h3 class="category-title">Study Tables</h3>
                 </div>
 
-                <div class="category-card" onclick="filterCategory('center-tables')">
+                <div class="category-card" data-animate="left" onclick="filterCategory('center-tables')">
                     <div class="category-icon">
                         <i class="fas fa-table text-4xl"></i>
                     </div>
                     <h3 class="category-title">Center Tables</h3>
                 </div>
 
-                <div class="category-card" onclick="filterCategory('dining-tables')">
+                <div class="category-card" data-animate="right" onclick="filterCategory('dining-tables')">
                     <div class="category-icon">
                         <i class="fas fa-utensils text-4xl"></i>
                     </div>
@@ -156,7 +175,7 @@
                     <h3 class="category-title">Side Tables</h3>
                 </div> -->
 
-                <div class="category-card" onclick="filterCategory('console-tables')">
+                <div class="category-card" data-animate="left" onclick="filterCategory('console-tables')">
                     <div class="category-icon">
                         <i class="fas fa-columns text-4xl"></i>
                     </div>
@@ -164,7 +183,7 @@
                 </div>
 
                 <!-- Additional categories: Wardrobes and Shoe Racks -->
-                <div class="category-card" onclick="filterCategory('wardrobes')">
+                <div class="category-card" data-animate="right" onclick="filterCategory('wardrobes')">
                     <div class="category-icon">
                         <i class="fas fa-warehouse text-4xl"></i>
                     </div>
@@ -178,14 +197,14 @@
                     <h3 class="category-title">Shoe Racks</h3>
                 </div> -->
 
-                <a href="pages/contact.html" class="category-card">
+                <a href="pages/contact.html" class="category-card" data-animate="left">
                     <div class="category-icon">
                         <i class="fas fa-paint-brush text-4xl"></i>
                     </div>
                     <h3 class="category-title">Interior Designing</h3>
                 </a>
 
-                <a href="pages/contact.html" class="category-card">
+                <a href="pages/contact.html" class="category-card" data-animate="right">
                     <div class="category-icon">
                         <i class="fas fa-utensils text-4xl"></i>
                     </div>
@@ -198,7 +217,7 @@
     <!-- Sofas Section -->
     <section class="section-padding bg-white" style="margin-top:-35px;">
         <div class="container mx-auto px-4">
-            <h2 class="section-title">Luxurious Sofas</h2>
+            <h2 class="section-title" data-animate="left">Luxurious Sofas</h2>
             <div class="product-grid" id="sofas-grid">
                 <!-- Products will be loaded by JS -->
             </div>
@@ -232,7 +251,7 @@
     <!-- Beds Section -->
     <section class="section-padding" style="margin-top:-35px;">
         <div class="container mx-auto px-4">
-            <h2 class="section-title">Premium Beds</h2>
+            <h2 class="section-title" data-animate="right">Premium Beds</h2>
             <div class="product-grid" id="beds-grid">
                 <!-- Products will be loaded by JS -->
             </div>
@@ -255,7 +274,7 @@
     <!-- Chairs Section -->
     <section class="section-padding bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-title">Elegant Chairs</h2>
+            <h2 class="section-title" data-animate="left">Elegant Chairs</h2>
             <div class="product-grid" id="chairs-grid">
                 <!-- Products will be loaded by JS -->
             </div>
@@ -265,7 +284,7 @@
     <!-- Tables Section -->
     <section class="section-padding bg-white" style="margin-top:-35px;">
         <div class="container mx-auto px-4">
-            <h2 class="section-title">Designer Tables</h2>
+            <h2 class="section-title" data-animate="right">Designer Tables</h2>
             <div class="product-grid" id="center-tables">
 
             </div>
@@ -275,7 +294,7 @@
     <!-- Testimonials Section -->
     <section class="section-padding" style="margin-top:-35px;">
         <div class="container mx-auto px-4">
-            <h2 class="section-title">What Our Customers Say</h2>
+            <h2 class="section-title" data-animate="left">What Our Customers Say</h2>
             <div class="testimonial-slider" id="testimonial-slider">
                 <div class="testimonial-slide-group active">
                     <div class="testimonial-card">
@@ -444,6 +463,7 @@
 
     <script src="js/products.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/scroll-animations.js"></script>
     <script>
         // Load products on homepage
         window.addEventListener('DOMContentLoaded', () => {

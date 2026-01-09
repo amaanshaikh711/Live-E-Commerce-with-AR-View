@@ -54,10 +54,29 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu">
-                <a href="../index.html" class="mobile-nav-link">Home</a>
-                <a href="shop.html" class="mobile-nav-link">Shop</a>
-                <a href="about.html" class="mobile-nav-link">About</a>
-                <a href="contact.html" class="mobile-nav-link">Contact</a>
+                <div class="mobile-menu-header">
+                    <img src="../img/logo_LH.jpg" alt="Lusso Homes" class="mobile-menu-logo">
+                    <p class="mobile-menu-tagline">LUXURY FURNITURE STORE</p>
+                </div>
+
+                <nav class="mobile-menu-nav">
+                    <a href="../index.html" class="mobile-nav-link" data-page="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="shop.html" class="mobile-nav-link" data-page="shop">
+                        <i class="fas fa-store"></i>
+                        <span>Shop</span>
+                    </a>
+                    <a href="about.html" class="mobile-nav-link" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="contact.html" class="mobile-nav-link" data-page="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </nav>
             </div>
         </div>
     </nav>
@@ -75,12 +94,12 @@
     <section class="section-padding bg-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="section-title mb-8">Our Story</h2>
-                <p class="about-text">
+                <h2 class="section-title mb-8" data-animate="left">Our Story</h2>
+                <p class="about-text" data-animate="right">
                     At <span class="text-gold font-semibold">LussoHomes</span>, we believe that luxury is not just a
                     look — it's a lifestyle.
                 </p>
-                <p class="about-text">
+                <p class="about-text" data-animate="left">
                     We specialize in interior design and customized furniture that blend timeless elegance with modern
                     sophistication. Every project we create is a reflection of refined taste, comfort, and
                     functionality, crafted to transform ordinary spaces into extraordinary experiences.
@@ -98,8 +117,8 @@
     <!-- Vision & Mission Section -->
     <section class="section-padding bg-neutral-50">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <div class="vision-mission-card">
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto" data-animate-group>
+                <div class="vision-mission-card" data-animate="left">
                     <div class="vm-icon">
                         <i class="fas fa-eye"></i>
                     </div>
@@ -108,7 +127,7 @@
                         To redefine modern luxury living through design that inspires and endures.
                     </p>
                 </div>
-                <div class="vision-mission-card">
+                <div class="vision-mission-card" data-animate="right">
                     <div class="vm-icon">
                         <i class="fas fa-bullseye"></i>
                     </div>
@@ -125,9 +144,9 @@
     <!-- What We Do Section -->
     <section class="section-padding bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-title mb-16">What We Do</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card">
+            <h2 class="section-title mb-16" data-animate="fade">What We Do</h2>
+            <div class="grid md:grid-cols-3 gap-8" data-animate-group>
+                <div class="service-card" data-animate="left">
                     <div class="service-icon">
                         <i class="fas fa-pencil-ruler"></i>
                     </div>
@@ -137,7 +156,7 @@
                         environments tailored to your vision.
                     </p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-animate="fade">
                     <div class="service-icon">
                         <i class="fas fa-couch"></i>
                     </div>
@@ -147,7 +166,7 @@
                         aesthetics.
                     </p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-animate="right">
                     <div class="service-icon">
                         <i class="fas fa-kitchen-set"></i>
                     </div>
@@ -164,24 +183,24 @@
     <!-- Our Values Section -->
     <section class="section-padding values-section">
         <div class="container mx-auto px-4">
-            <h2 class="section-title text-white mb-16">Our Core Values</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="value-card">
+            <h2 class="section-title text-white mb-16" data-animate="fade">Our Core Values</h2>
+            <div class="grid md:grid-cols-4 gap-8" data-animate-group>
+                <div class="value-card" data-animate="left">
                     <i class="fas fa-gem value-icon"></i>
                     <h4 class="value-title">Quality</h4>
                     <p class="value-text">Premium materials and expert craftsmanship in every piece</p>
                 </div>
-                <div class="value-card">
+                <div class="value-card" data-animate="right">
                     <i class="fas fa-lightbulb value-icon"></i>
                     <h4 class="value-title">Innovation</h4>
                     <p class="value-text">Modern designs that push creative boundaries</p>
                 </div>
-                <div class="value-card">
+                <div class="value-card" data-animate="left">
                     <i class="fas fa-user-tie value-icon"></i>
                     <h4 class="value-title">Personalization</h4>
                     <p class="value-text">Tailored solutions for unique lifestyles</p>
                 </div>
-                <div class="value-card">
+                <div class="value-card" data-animate="right">
                     <i class="fas fa-award value-icon"></i>
                     <h4 class="value-title">Excellence</h4>
                     <p class="value-text">Unwavering commitment to perfection</p>
@@ -193,7 +212,7 @@
     <!-- Why Choose Us Section -->
     <section class="section-padding bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="section-title mb-16">Why Choose Lusso Homes</h2>
+            <h2 class="section-title mb-16" data-animate="left">Why Choose Lusso Homes</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="feature-card">
                     <div class="feature-number">01</div>
@@ -297,6 +316,7 @@
     </a>
 
     <script src="../js/main.js"></script>
+    <script src="../js/scroll-animations.js"></script>
 </body>
 
 </html>

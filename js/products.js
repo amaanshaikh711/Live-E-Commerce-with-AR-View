@@ -22,7 +22,7 @@ const products = [
         description: "Spacious sectional perfect for family gatherings, minimal theme design couch with different fabric option with high density of branded foam use for durability with pine wood frame structure and cover with the cushion with customize as per size. Fabric material: velvet, cotton, linen, microfiber. Wood material: oak, teak, pine, mahogany, burma, sal.",
         material: "Linen Fabric, Engineered Wood",
         dimensions: "Width: 84\" (213 cm), Depth: 35\" (88.9 cm), Height: 33\" (84 cm), Seat Height: 18\" (46 cm)",
-        model: "models/2-seater-loveseat.glb",
+        model: "models/2-seater-sofa-white.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -58,7 +58,7 @@ const products = [
         description: "Mid-century modern 3-seater sofa featuring a sleek wooden frame and plush, deep-cushioned upholstery. The design highlights clean lines and a minimalist silhouette, blending comfort with timeless elegance. Customize option available. Fabric material: velvet, cotton, linen, microfiber. Wood material: oak, teak, pine, mahogany.",
         material: "Velvet Fabric, Solid Walnut Wood",
         dimensions: "Width: 84\" (213 cm), Depth: 36\" (91 cm), Height: 32\" (81 cm), Seat Height: 18\" (46 cm)",
-        model: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb",
+        model: "models/new-sofa.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -82,7 +82,7 @@ const products = [
         description: "Modern designer 3-seater sofa featuring a sculpted silhouette with generous cushioning and a matte black wooden base. Its sleek, low-profile form and soft textured upholstery create a perfect blend of comfort and understated luxury, ideal for contemporary interiors. Fabric material: velvet, cotton, linen, microfiber. Wood material: oak, teak, pine, mahogany.",
         material: "Textured Fabric, Matte Black Oak Wood",
         dimensions: "Width: 92\" (234 cm), Depth: 38\" (97 cm), Height: 33\" (84 cm), Seat Height: 18\" (46 cm)",
-        model: "models/orion-sofa.glb",
+        model: "models/3-seat-sofa-grey.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
 
