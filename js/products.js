@@ -144,7 +144,7 @@ const products = [
         description: "Built-in storage drawers for organization and cover with the teak wood with cushion bed board with pu polish in satin with customize size. Fabric: velvet, cotton, linen, microfiber. Wood: oak, teak, pine, mahogany, burma, sal.",
         material: "Engineered Wood",
         dimensions: "Queen Size (Width: 5' x Length: 6' x Height: 1'4\")",
-        model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        model: "models/harmony-bed.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -206,7 +206,7 @@ const products = [
         description: "Contemporary swivel design with brass accents, one of the best unique design of dining chair. Fabric: velvet, cotton, linen, microfiber, leather. Wood: plywood, oak, teak, mahogany, burma, sal.",
         material: "Boucle Fabric, Walnut Wood, Brass",
         dimensions: "Width: 27\" (69 cm), Depth: 28\" (71 cm), Height: 32\" (81 cm), Seat Height: 18\" (46 cm)",
-        model: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb",
+        model: "models/x-furniture.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -276,8 +276,8 @@ const products = [
         image: "img/chair/white.jpg",
         description: "Natural rattan weave with cushion. Fabric: velvet, cotton, linen, microfiber, leather. Wood: plywood, oak, teak, mahogany.",
         material: "Natural Rattan, Cotton Cushion",
-        dimensions: "Width: 25\" (65 cm), Depth: 27.5\" (70 cm), Height: 33\" (85 cm)",
-        model: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb",
+        dimensions: "Width: 27\" (70 cm), Depth: 29\" (75 cm), Height: 36\" (91 cm)",
+        model: "models/white-office-chair.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
 
