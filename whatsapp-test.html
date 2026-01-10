@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Cart Integration - Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .status {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .status-title {
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 5px;
+        }
+
+        .status-text {
+            color: #075985;
+            font-size: 14px;
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+        }
+
+        .test-section h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .test-section h2::before {
+            content: '🧪';
+            font-size: 24px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        .info-box {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .info-box h3 {
+            color: #92400e;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            color: #78350f;
+            font-size: 13px;
+        }
+
+        .info-box li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .info-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        .cart-preview {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #374151;
+        }
+
+        .cart-preview pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🧪 WhatsApp Cart Integration Test</h1>
+        <p class="subtitle">Test the WhatsApp cart functionality before deploying to production</p>
+
+        <div class="status">
+            <div class="status-title">✅ Integration Status: Active</div>
+            <div class="status-text">WhatsApp number: +91 84336 00339</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test Scenarios</h2>
+
+            <button class="btn btn-primary" onclick="addSampleCart()">
+                📦 Add Sample Cart (3 items)
+            </button>
+
+            <button class="btn btn-whatsapp" onclick="testWhatsAppIntegration()">
+                <span style="font-size: 20px;">📱</span>
+                Test WhatsApp Integration
+            </button>
+
+            <button class="btn btn-danger" onclick="clearCart()">
+                🗑️ Clear Cart
+            </button>
+        </div>
+
+        <div class="cart-preview" id="cartPreview">
+            <strong>Current Cart:</strong> Empty
+        </div>
+
+        <div class="info-box">
+            <h3>📋 Testing Instructions:</h3>
+            <ul>
+                <li>Click "Add Sample Cart" to populate test data</li>
+                <li>Click "Test WhatsApp Integration" to open WhatsApp</li>
+                <li>Verify message format and calculations</li>
+                <li>Click "Clear Cart" to test empty cart validation</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Sample products for testing
+        const sampleProducts = [
+            {
+                id: 1,
+                name: "Velvet Charm Modern Sofa",
+                price: 78999,
+                quantity: 1,
+                image: "img/Sofas/Sofas- velvet charm modern sofa - 78999.jpeg"
+            },
+            {
+                id: 17,
+                name: "Mid-Century Leather Lounge Chair",
+                price: 14999,
+                quantity: 2,
+                image: "img/chair/black.jpg"
+            },
+            {
+                id: 35,
+                name: "Japandi Round Coffee Table",
+                price: 23499,
+                quantity: 1,
+                image: "img/Centre Tables/Center Table - 2-Tiered Japandi Round  Walnut Wood Coffee Table with Storage Rattan Base - 23499.jpg"
+            }
+        ];
+
+        function addSampleCart() {
+            localStorage.setItem('lusso-cart', JSON.stringify(sampleProducts));
+            updateCartPreview();
+            alert('✅ Sample cart added! (3 items)');
+        }
+
+        function clearCart() {
+            localStorage.removeItem('lusso-cart');
+            updateCartPreview();
+            alert('🗑️ Cart cleared!');
+        }
+
+        function testWhatsAppIntegration() {
+            const cart = JSON.parse(localStorage.getItem('lusso-cart') || '[]');
+
+            if (cart.length === 0) {
+                alert('❌ Your cart is empty! Please add items to your cart before proceeding.');
+                return;
+            }
+
+            // Generate message (same logic as whatsapp-cart.js)
+            let message = '🛍️ *New Order Inquiry from Lusso Homes Website*\n\n';
+            message += 'Hello! I would like to place an order for the following items:\n\n';
+            message += '📦 *Order Details:*\n';
+            message += '━━━━━━━━━━━━━━━━━━━━\n\n';
+
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                message += `*${index + 1}. ${item.name}*\n`;
+                message += `   • Quantity: ${item.quantity}\n`;
+                message += `   • Price: ₹${item.price.toLocaleString('en-IN')} each\n`;
+                message += `   • Subtotal: ₹${itemTotal.toLocaleString('en-IN')}\n\n`;
+            });
+
+            const gst = subtotal * 0.05;
+            const shipping = 0;
+            const total = subtotal + gst + shipping;
+
+            message += '━━━━━━━━━━━━━━━━━━━━\n';
+            message += '💰 *Order Summary:*\n\n';
+            message += `Subtotal: ₹${subtotal.toLocaleString('en-IN')}\n`;
+            message += `GST (5%): ₹${gst.toLocaleString('en-IN')}\n`;
+            message += `Shipping: FREE\n\n`;
+            message += `*Total Amount: ₹${total.toLocaleString('en-IN')}*\n\n`;
+            message += '━━━━━━━━━━━━━━━━━━━━\n\n';
+            message += '📍 Please confirm availability and delivery details.\n';
+            message += '🙏 Thank you!';
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/918433600339?text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+        }
+
+        function updateCartPreview() {
+            const cart = JSON.parse(localStorage.getItem('lusso-cart') || '[]');
+            const preview = document.getElementById('cartPreview');
+
+            if (cart.length === 0) {
+                preview.innerHTML = '<strong>Current Cart:</strong> Empty';
+            } else {
+                let html = `<strong>Current Cart (${cart.length} items):</strong><br><br>`;
+                cart.forEach((item, index) => {
+                    html += `${index + 1}. ${item.name} (Qty: ${item.quantity}) - ₹${item.price.toLocaleString('en-IN')}<br>`;
+                });
+                preview.innerHTML = html;
+            }
+        }
+
+        // Update preview on load
+        updateCartPreview();
+    </script>
+</body>
+
+</html>

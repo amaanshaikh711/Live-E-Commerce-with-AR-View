@@ -408,7 +408,7 @@ function initializeMobileMenu() {
         menuLinks.forEach(link => {
             const href = link.getAttribute('href');
             const linkPage = href.split('/').pop();
-            
+
             if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
                 link.classList.add('active');
             } else {
@@ -425,7 +425,7 @@ function initializeMobileMenu() {
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             mobileMenu.classList.toggle('active');
-            
+
             // Animate hamburger icon
             const icon = menuBtn.querySelector('i');
             if (mobileMenu.classList.contains('active')) {
@@ -528,10 +528,11 @@ function loadCart() {
         </div>
     `).join('');
 
+
     // Calculate totals
     const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     const tax = subtotal * 0.18; // 18% GST
-    const shipping = subtotal > 50000 ? 0 : 1500;
+    const shipping = 0; // Free shipping
     const total = subtotal + tax + shipping;
 
     // Render summary
@@ -547,17 +548,127 @@ function loadCart() {
         </div>
         <div class="summary-row">
             <span>Shipping:</span>
-            <span>${shipping === 0 ? 'FREE' : formatPrice(shipping)}</span>
+            <span class="text-green-600 font-semibold">FREE</span>
         </div>
         <div class="summary-row summary-total">
             <span>Total:</span>
             <span class="text-gold">${formatPrice(total)}</span>
         </div>
-        ${subtotal < 50000 ? '<p class="text-sm text-neutral-600 mt-4">Add ₹' + (50000 - subtotal).toLocaleString('en-IN') + ' more for free shipping!</p>' : ''}
         <button class="btn-primary w-full mt-6" onclick="proceedToCheckout()">
             Proceed to Checkout 
         </button>
-        
+        <button id="whatsapp-cart-btn" class="whatsapp-cart-button">
+            <span class="whatsapp-icon-wrapper">
+                <i class="fab fa-whatsapp"></i>
+            </span>
+            <span class="whatsapp-text">Buy on WhatsApp</span>
+            <span class="whatsapp-shine"></span>
+        </button>
+        <style>
+            .whatsapp-cart-button {
+                position: relative;
+                width: 100%;
+                margin-top: 12px;
+                padding: 14px 24px;
+                background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+                color: white;
+                border: none;
+                border-radius: 12px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+            
+            .whatsapp-cart-button::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+                transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                z-index: 0;
+            }
+            
+            .whatsapp-cart-button:hover::before {
+                left: 0;
+            }
+            
+            .whatsapp-cart-button:hover {
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5), 
+                            0 0 30px rgba(37, 211, 102, 0.3),
+                            inset 0 0 20px rgba(255, 255, 255, 0.1);
+            }
+            
+            .whatsapp-cart-button:active {
+                transform: translateY(-1px) scale(0.98);
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            
+            .whatsapp-icon-wrapper {
+                position: relative;
+                z-index: 1;
+                font-size: 22px;
+                display: flex;
+                align-items: center;
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            
+            .whatsapp-cart-button:hover .whatsapp-icon-wrapper {
+                transform: rotate(15deg) scale(1.2);
+                animation: bounce 0.6s ease;
+            }
+            
+            @keyframes bounce {
+                0%, 100% { transform: rotate(15deg) scale(1.2); }
+                50% { transform: rotate(15deg) scale(1.3); }
+            }
+            
+            .whatsapp-text {
+                position: relative;
+                z-index: 1;
+                transition: letter-spacing 0.3s ease;
+            }
+            
+            .whatsapp-cart-button:hover .whatsapp-text {
+                letter-spacing: 0.5px;
+            }
+            
+            .whatsapp-shine {
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                    45deg,
+                    transparent 30%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    transparent 70%
+                );
+                transform: rotate(45deg);
+                animation: shine 3s infinite;
+                pointer-events: none;
+            }
+            
+            @keyframes shine {
+                0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+                100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            }
+            
+            .whatsapp-cart-button:hover .whatsapp-shine {
+                animation: shine 1s infinite;
+            }
+        </style>
     `;
 }
 
