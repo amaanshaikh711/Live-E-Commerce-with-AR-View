@@ -210,7 +210,7 @@
         <button class="back-btn" onclick="history.back()">
             <i class="fas fa-arrow-left"></i>
         </button>
-        <div class="logo-mark">LUSSO AR</div>
+        <div class="logo-mark">LUSSO HOMES AR</div>
     </div>
 
 
@@ -226,9 +226,10 @@
             </button>
 
             <!-- Loading Indicator -->
-            <div slot="progress-bar"
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgba(0,0,0,0.5);">
+            <div id="loading-spinner" slot="progress-bar"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgba(0,0,0,0.5); display: flex; flex-direction: column; align-items: center; gap: 10px;">
                 <i class="fas fa-spinner fa-spin" style="font-size: 32px;"></i>
+                <div style="font-size: 14px; color: rgba(0,0,0,0.6);">Loading 3D Model...</div>
             </div>
         </model-viewer>
 
@@ -262,7 +263,13 @@
         if (product) {
             document.getElementById('p-name').textContent = product.name;
 
-            // Set poster image if available
+            // Check if this product uses the default astronaut model
+            const isAstronautModel = product.model && (
+                product.model.includes('Astronaut.glb') ||
+                product.model.includes('NeilArmstrong.glb')
+            );
+
+            // Set poster image
             if (product.image) {
                 // Fix image path if needed
                 let imgPath = product.image;
@@ -273,24 +280,47 @@
                 viewer.poster = imgPath;
             }
 
-            // Fix URL paths
-            let mUrl = product.model;
-            // Handle models/ path which is at root
-            if (mUrl && mUrl.startsWith('models/')) mUrl = '../' + mUrl;
+            // If using astronaut model, show coming-soon image instead
+            if (isAstronautModel) {
+                // Set the coming-soon image as the poster
+                viewer.poster = '../img/coming-soon.png';
 
-            if (mUrl) {
-                // Full Absolute URL for reliability
-                const absUrl = new URL(mUrl, document.baseURI).href;
-                viewer.src = absUrl;
-                viewer.alt = `3D model of ${product.name}`;
+                // Hide the AR button since there's no real 3D model
+                const arBtn = document.getElementById('ar-element-btn');
+                if (arBtn) {
+                    arBtn.style.display = 'none';
+                }
+
+                // Update the hint text
+                const hintElement = document.querySelector('.product-hint');
+                if (hintElement) {
+                    hintElement.textContent = '3D Model Coming Soon';
+                }
+
+                // Don't load the astronaut model
+                viewer.removeAttribute('src');
+                viewer.removeAttribute('ios-src');
+
             } else {
-                showToast("No 3D model available for this product");
-            }
+                // Fix URL paths for custom models
+                let mUrl = product.model;
+                // Handle models/ path which is at root
+                if (mUrl && mUrl.startsWith('models/')) mUrl = '../' + mUrl;
 
-            if (product.iosModel) {
-                let iUrl = product.iosModel;
-                if (iUrl.startsWith('models/')) iUrl = '../' + iUrl;
-                viewer.setAttribute('ios-src', new URL(iUrl, document.baseURI).href);
+                if (mUrl) {
+                    // Full Absolute URL for reliability
+                    const absUrl = new URL(mUrl, document.baseURI).href;
+                    viewer.src = absUrl;
+                    viewer.alt = `3D model of ${product.name}`;
+                } else {
+                    showToast("No 3D model available for this product");
+                }
+
+                if (product.iosModel) {
+                    let iUrl = product.iosModel;
+                    if (iUrl.startsWith('models/')) iUrl = '../' + iUrl;
+                    viewer.setAttribute('ios-src', new URL(iUrl, document.baseURI).href);
+                }
             }
         } else {
             showToast("Product not found");
@@ -300,6 +330,34 @@
         viewer.addEventListener('error', (e) => {
             console.error('Model Viewer Error:', e);
             showToast("Error loading 3D model. Check connection.");
+            // Hide loading spinner on error
+            const spinner = document.getElementById('loading-spinner');
+            if (spinner) spinner.style.display = 'none';
+        });
+
+        // Hide loading spinner when model is loaded
+        viewer.addEventListener('load', () => {
+            console.log('Model loaded successfully');
+            const spinner = document.getElementById('loading-spinner');
+            if (spinner) spinner.style.display = 'none';
+        });
+
+        // Also listen for poster-dismissed event (when user interacts with model)
+        viewer.addEventListener('poster-dismissed', () => {
+            const spinner = document.getElementById('loading-spinner');
+            if (spinner) spinner.style.display = 'none';
+        });
+
+        // Listen for progress events to ensure spinner hides at 100%
+        viewer.addEventListener('progress', (event) => {
+            const progress = event.detail.totalProgress;
+            if (progress === 1) {
+                // Model is fully loaded
+                setTimeout(() => {
+                    const spinner = document.getElementById('loading-spinner');
+                    if (spinner) spinner.style.display = 'none';
+                }, 100);
+            }
         });
 
         // AR Activation is now handled natively by the <model-viewer> component via slot="ar-button"

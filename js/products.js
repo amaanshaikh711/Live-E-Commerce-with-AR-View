@@ -88,30 +88,6 @@ const products = [
 
     // Beds
     {
-        id: 9,
-        name: "Aurelia Bed - King Size",
-        category: "beds",
-        price: 129999,
-        image: "img/Beds/Beds- Aurelia Bed - 5' x6' - 129999.jpeg",
-        description: "Elegant upholstered headboard with storage, luxurious design bed with solid wood and cover with the pu coat with fabric finish with multiple option with customize size. Fabric: velvet, cotton, linen, microfiber. Wood: oak, teak, pine, mahogany, burma, sal.",
-        material: "Fabric Upholstery, Solid Wood",
-        dimensions: "King Size (Width: 5' x Length: 6' x Height: 1'4\")",
-        model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
-    },
-    {
-        id: 10,
-        name: "Modern Canopy Beds",
-        category: "beds",
-        price: 114999,
-        image: "img/Beds/Beds- Canopy Beds - 129999.jpeg",
-        description: "Low-profile contemporary design with luxurious feel made up of solid wood and cover with the polish and bed board will be cover with the cushion. Fabric: velvet, cotton, linen, microfiber. Wood: oak, teak, pine, mahogany, burma, sal.",
-        material: "Engineered Wood, Metal",
-        dimensions: "Queen Size (Width: 5' x Length: 6' x Height: 1'4\")",
-        model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
-    },
-    {
         id: 11,
         name: "Elegant Wave Design Wooden Bed",
         category: "beds",
@@ -124,18 +100,6 @@ const products = [
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
-        id: 12,
-        name: "Luxury Elysian Bed",
-        category: "beds",
-        price: 111999,
-        image: "img/Beds/Beds- Elysian Bed 5' x6' - 111999.jpeg",
-        description: "Premium velvet with diamond tufting, in teak wood finish with wooden carving design on wooden pillar and cover with the polish finish with customize size. Fabric: velvet, cotton, linen, microfiber. Wood: oak, teak, pine, mahogany, burma, sal.",
-        material: "Velvet, Solid Wood Frame",
-        dimensions: "King Size (Width: 5' x Length: 6' x Height: 1'4\")",
-        model: "models/bed-03.glb",
-        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
-    },
-    {
         id: 13,
         name: "Harmony Bed - Queen Size",
         category: "beds",
@@ -145,6 +109,18 @@ const products = [
         material: "Engineered Wood",
         dimensions: "Queen Size (Width: 5' x Length: 6' x Height: 1'4\")",
         model: "models/harmony-bed.glb",
+        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+    },
+    {
+        id: 12,
+        name: "Luxury Elysian Bed",
+        category: "beds",
+        price: 111999,
+        image: "img/Beds/Beds- Elysian Bed 5' x6' - 111999.jpeg",
+        description: "Premium velvet with diamond tufting, in teak wood finish with wooden carving design on wooden pillar and cover with the polish finish with customize size. Fabric: velvet, cotton, linen, microfiber. Wood: oak, teak, pine, mahogany, burma, sal.",
+        material: "Velvet, Solid Wood Frame",
+        dimensions: "King Size (Width: 5' x Length: 6' x Height: 1'4\")",
+        model: "models/bed-03.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -168,8 +144,8 @@ const products = [
         description: "Elegant Bedroom with Regal Charm & Dramatic Floral Accent. Fabric: velvet, cotton, linen, microfiber. Wood: plywood, oak, teak, pine, mahogany, burma, sal.",
         material: "Premium Leather, Metal Frame",
         dimensions: "King Size (Width: 5' x Length: 6' x Height: 1'4\")",
-        model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+        model: "models/bed-x.glb",
+        // iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
         id: 16,
@@ -181,6 +157,30 @@ const products = [
         material: "Reclaimed Teak Wood",
         dimensions: "Queen Size (Width: 5' x Length: 6')",
         model: "models/bed-02.glb",
+        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+    },
+    {
+        id: 9,
+        name: "Aurelia Bed - King Size",
+        category: "beds",
+        price: 129999,
+        image: "img/Beds/Beds- Aurelia Bed - 5' x6' - 129999.jpeg",
+        description: "Elegant upholstered headboard with storage, luxurious design bed with solid wood and cover with the pu coat with fabric finish with multiple option with customize size. Fabric: velvet, cotton, linen, microfiber. Wood: oak, teak, pine, mahogany, burma, sal.",
+        material: "Fabric Upholstery, Solid Wood",
+        dimensions: "King Size (Width: 5' x Length: 6' x Height: 1'4\")",
+        model: "models/bed-3.4.glb",
+        // iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+    },
+    {
+        id: 10,
+        name: "Modern Canopy Beds",
+        category: "beds",
+        price: 114999,
+        image: "img/Beds/Beds- Canopy Beds - 129999.jpeg",
+        description: "Low-profile contemporary design with luxurious feel made up of solid wood and cover with the polish and bed board will be cover with the cushion. Fabric: velvet, cotton, linen, microfiber. Wood: oak, teak, pine, mahogany, burma, sal.",
+        material: "Engineered Wood, Metal",
+        dimensions: "Queen Size (Width: 5' x Length: 6' x Height: 1'4\")",
+        model: "models/bed-3.1.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
 
@@ -242,7 +242,7 @@ const products = [
         description: "Unique sculptural design with brass details, with elegant look and decent design for dining chair and curve part and cover with fabric with premium look. Fabric: velvet, cotton, linen, microfiber, leather. Wood: plywood, oak, teak, mahogany.",
         material: "Boucle Fabric, Ash Wood, Brass",
         dimensions: "Width: 22\" (56 cm), Depth: 23\" (58 cm), Height: 33\" (84 cm), Seat Height: 18\" (46 cm)",
-        model: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb",
+        model: "models/chair-3.0.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -254,8 +254,8 @@ const products = [
         description: "Traditional elegance with modern comfort, with sleek look and fabric finish on base and back. Fabric: velvet, cotton, linen, microfiber, leather. Wood: plywood, oak, teak, mahogany.",
         material: "Velvet, Solid Wood Frame",
         dimensions: "Width: 20\" (51 cm), Depth: 22\" (56 cm), Height: 34\" (86 cm), Seat Height: 18\" (46 cm)",
-        model: "https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb",
-        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+        model: "models/franka-chair.glb",
+        // iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
         id: 23,
@@ -283,15 +283,15 @@ const products = [
 
     // Study Tables
     {
-        id: 25,
-        name: "Study Table - Bronte Desk",
+        id: 29,
+        name: "Study Table - Langford Executive Desk",
         category: "study-tables",
         price: 32999,
-        image: "img/Study Tables/Study Table - Brontë Desk - 32999.jpeg",
-        description: "Classic design with ample workspace. Material: oak, teak, mahogany, burma.",
-        material: "Premium Hardwood, Metal Accents",
+        image: "img/Study Tables/Study Table-Langford Executive Desk - 22 x 3' - 32999.jpeg",
+        description: "Executive style desk with professional appeal. Material: oak, teak, mahogany, burma.",
+        material: "Premium Wood, Metal Base",
         dimensions: "Width: 3' x Depth: 2' x Height: 2'7\"",
-        model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        model: "models/table-X.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -303,7 +303,7 @@ const products = [
         description: "Elegant manor-style study desk with spacious surface. Material: oak, teak, mahogany, burma.",
         material: "Solid Wood, Metal Hardware",
         dimensions: "Width: 3' x Depth: 2' x Height: 2'7\"",
-        model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        model: "models/table-1.0.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -315,7 +315,7 @@ const products = [
         description: "Contemporary design with modern aesthetics. Material: oak, teak, mahogany, burma.",
         material: "Engineered Wood, Metal Frame",
         dimensions: "Width: 3' x Depth: 2' x Height: 2'7\"",
-        model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+        model: "models/table-2.2.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
@@ -327,17 +327,17 @@ const products = [
         description: "Modern writing desk with minimalist design. Material: oak, teak, mahogany, burma.",
         material: "Premium MDF, Steel Frame",
         dimensions: "Width: 3' x Depth: 2' x Height: 2'7\"",
-        model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-        iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+        model: "models/table-new.glb",
+        // iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
     },
     {
-        id: 29,
-        name: "Study Table - Langford Executive Desk",
+        id: 25,
+        name: "Study Table - Bronte Desk",
         category: "study-tables",
         price: 32999,
-        image: "img/Study Tables/Study Table-Langford Executive Desk - 22 x 3' - 32999.jpeg",
-        description: "Executive style desk with professional appeal. Material: oak, teak, mahogany, burma.",
-        material: "Premium Wood, Metal Base",
+        image: "img/Study Tables/Study Table - Brontë Desk - 32999.jpeg",
+        description: "Classic design with ample workspace. Material: oak, teak, mahogany, burma.",
+        material: "Premium Hardwood, Metal Accents",
         dimensions: "Width: 3' x Depth: 2' x Height: 2'7\"",
         model: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
         iosModel: "https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
